@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R35 Discount Store | South Africa's Biggest Deals</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col text-gray-800 antialiased selection:bg-red-500 selection:text-white bg-slate-50">
+
+    <!-- URGENCY TOP BAR -->
+    <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center shadow-inner flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-yellow-300 animate-ping"></span>
+        <span>SOUTH AFRICA EXCLUSIVE: INSANE ONE-TIME BLOWOUT SALE! OFFERS EXPIRE IN:</span>
+        <span id="topBarTimer" class="font-mono text-yellow-300 bg-red-800 px-2 py-0.5 rounded text-sm font-black">02:14:59</span>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NAVIGATION BAR                             -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 gap-4">
+                
+                <!-- Brand Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="navigateTo('catalog')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-red-200">
+                        <i data-lucide="tag" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl leading-none tracking-tight text-gray-900">R35<span class="text-red-600">STORE</span></span>
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-amber-600">🇿🇦 South Africa</span>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div id="searchBarContainer" class="flex-1 max-w-md hidden md:block">
+                    <div class="relative">
+                        <input type="text" id="searchInput" oninput="handleFilterChange()" placeholder="Search super deals, smartphones, tools..." 
+                            class="w-full pl-10 pr-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-full focus:bg-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="flex items-center gap-3">
+                    <button onclick="navigateTo('catalog')" class="hidden sm:flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-red-600 px-3 py-2 rounded-lg hover:bg-red-50 transition">
+                        <i data-lucide="flame" class="w-4 h-4 text-red-500"></i> Hot Deals
+                    </button>
+                    <button onclick="showToast('Click any product to claim the discount immediately!')" class="relative p-2 text-gray-700 hover:text-red-600 rounded-full hover:bg-gray-100 transition">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span id="cartBadge" class="absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div id="mobileSearchContainer" class="pb-3 md:hidden">
+                <div class="relative">
+                    <input type="text" id="mobileSearchInput" oninput="syncMobileSearch(this.value)" placeholder="Search deals..." 
+                        class="w-full pl-9 pr-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-full focus:bg-white focus:border-red-500 focus:outline-none">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- ================= VIEW 1: CATALOG ================= -->
+        <section id="catalogView" class="space-y-6">
+            
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-red-950 via-red-900 to-amber-950 text-white shadow-2xl border border-red-800/50">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(239,68,68,0.25),transparent)] pointer-events-none"></div>
+                <div class="relative px-6 py-10 sm:px-12 sm:py-14 max-w-3xl space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-black tracking-wider text-yellow-300 uppercase bg-red-900/80 rounded-full border border-yellow-500/40 shadow-sm">
+                        <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> One-Time Warehouse Clearance 🇿🇦
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-none uppercase drop-shadow">
+                        Up to <span class="text-yellow-400 underline decoration-red-500">95% OFF</span> Mega Discounts!
+                    </h1>
+                    <p class="text-sm sm:text-base text-gray-200 font-medium leading-relaxed">
+                        Exclusive deal allocation for South Africa customers. All items priced at only <strong class="text-yellow-300 font-black">R35.00 ZAR</strong> or <strong class="text-yellow-300 font-black">R163.00 ZAR</strong>! Once sold out, these prices will never return!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Filter & Controls Toolbar -->
+            <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pb-2 border-b border-gray-200">
+                <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0" id="categoryTabs">
+                    <!-- Dynamic Category Buttons populated by JS -->
+                </div>
+
+                <div class="flex items-center gap-2 self-end sm:self-auto">
+                    <label for="sortSelect" class="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
+                        <i data-lucide="arrow-up-down" class="w-3.5 h-3.5"></i> Sort:
+                    </label>
+                    <select id="sortSelect" onchange="handleFilterChange()" class="text-sm border-gray-200 bg-white rounded-lg px-3 py-1.5 font-medium focus:ring-2 focus:ring-red-500 focus:outline-none border shadow-sm">
+                        <option value="featured">🔥 Highest Discount</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Product Cards injected here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-gray-300">
+                <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto text-red-500 mb-3">
+                    <i data-lucide="package-search" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-bold text-gray-900">No clearance deals matching your search</h3>
+                <p class="text-sm text-gray-500 mt-1">Try resetting your filter or search keywords.</p>
+                <button onclick="resetFilters()" class="mt-4 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-red-600 hover:bg-red-700 rounded-lg transition shadow">Reset Filters</button>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 2: PRODUCT DETAIL ================= -->
+        <section id="productDetailView" class="hidden space-y-8">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gray-100 p-3 rounded-2xl border border-gray-200">
+                <nav class="flex items-center space-x-2 text-sm text-gray-500">
+                    <button onclick="navigateTo('catalog')" class="hover:text-red-600 font-bold transition flex items-center gap-1">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Superstore
+                    </button>
+                    <span>/</span>
+                    <span id="breadcrumbCategory" class="capitalize">Category</span>
+                    <span>/</span>
+                    <span id="breadcrumbTitle" class="text-gray-900 font-semibold truncate max-w-[180px]">Product</span>
+                </nav>
+
+                <button onclick="copyAdDeepLink()" class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-800 bg-white border border-gray-300 rounded-xl hover:bg-slate-50 hover:text-red-600 transition shadow-sm">
+                    <i data-lucide="link" class="w-3.5 h-3.5 text-red-500"></i> Copy Direct Link for Ad Campaign
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-md">
+                
+                <!-- Left: Gallery -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="aspect-square bg-white rounded-2xl overflow-hidden relative border border-gray-100 group flex items-center justify-center p-4">
+                        <img id="detailMainImage" src="" alt="Product Image" class="w-full h-full object-contain object-center transition duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80'">
+                        <span id="detailBadge" class="absolute top-4 left-4 px-3 py-1 bg-red-600 text-white text-xs font-black uppercase tracking-wider rounded-lg shadow-md">
+                            Badge
+                        </span>
+                        <div class="absolute bottom-4 left-4 right-4 bg-amber-500/95 backdrop-blur-md text-slate-900 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-between shadow-lg">
+                            <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-4 h-4 fill-current"></i> Flash Promo Live</span>
+                            <span id="stockIndicator" class="bg-red-600 text-white px-2 py-0.5 rounded text-[11px]">Only 3 left!</span>
+                        </div>
+                    </div>
+                    <div id="detailThumbnails" class="flex items-center gap-3 overflow-x-auto pb-2"></div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span id="detailCategory" class="text-xs font-black uppercase tracking-widest text-red-600 bg-red-50 px-3 py-1 rounded-md border border-red-100"></span>
+                            <div class="flex items-center gap-1 text-amber-500 font-bold text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                                <span id="detailRating">4.9</span>
+                                <span id="detailReviewCount" class="text-gray-400 text-xs font-normal"></span>
+                            </div>
+                        </div>
+
+                        <h1 id="detailTitle" class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight leading-tight"></h1>
+
+                        <div class="bg-red-50 border border-red-200 rounded-2xl p-4 space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-red-600">Special SA Clearance Price:</span>
+                                <span id="detailSavingsTag" class="text-xs font-black text-white bg-red-600 px-2 py-0.5 rounded-full"></span>
+                            </div>
+                            <div class="flex items-baseline gap-3">
+                                <span id="detailPrice" class="text-3xl sm:text-4xl font-black text-red-600"></span>
+                                <span id="detailOriginalPrice" class="text-lg text-gray-400 line-through"></span>
+                            </div>
+                            <p class="text-[11px] text-emerald-700 font-bold flex items-center gap-1 pt-1">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i> Fast Express Courier Delivery Across South Africa
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-gray-100">
+                            <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider flex items-center gap-1">
+                                <i data-lucide="shield-alert" class="w-4 h-4 text-red-600"></i> Why This Deal Exists:
+                            </h4>
+                            <p id="detailDescription" class="text-gray-700 text-sm leading-relaxed bg-amber-50/60 border border-amber-200/60 p-3.5 rounded-xl font-medium"></p>
+                        </div>
+
+                        <div class="pt-2">
+                            <label class="block text-xs font-bold uppercase text-gray-500 tracking-wider mb-2">Select Variant / Edition</label>
+                            <div id="colorVariants" class="flex gap-2"></div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100">
+                            <h4 class="text-xs font-bold uppercase text-gray-500 tracking-wider mb-3">Product Highlights</h4>
+                            <ul id="detailSpecs" class="grid grid-cols-2 gap-2 text-xs text-gray-700 font-medium"></ul>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-200 space-y-3">
+                        <div class="flex items-center gap-4 mb-2">
+                            <label class="text-xs font-bold uppercase text-gray-500">Qty:</label>
+                            <div class="flex items-center border border-gray-300 rounded-lg bg-gray-50">
+                                <button onclick="adjustQuantity(-1)" class="p-2 hover:bg-gray-200 rounded-l-lg text-gray-600 transition"><i data-lucide="minus" class="w-3.5 h-3.5"></i></button>
+                                <span id="quantityDisplay" class="px-4 text-sm font-bold">1</span>
+                                <button onclick="adjustQuantity(1)" class="p-2 hover:bg-gray-200 rounded-r-lg text-gray-600 transition"><i data-lucide="plus" class="w-3.5 h-3.5"></i></button>
+                            </div>
+                        </div>
+
+                        <button onclick="handleBuyNow()" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl shadow-red-200 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-lg tracking-wide uppercase">
+                            <i data-lucide="shopping-cart" class="w-6 h-6 fill-current"></i>
+                            Claim Deal Now
+                        </button>
+
+                        <p class="text-center text-xs text-gray-500 flex items-center justify-center gap-1.5 pt-1 font-semibold">
+                            <i data-lucide="lock" class="w-4 h-4 text-emerald-600"></i> Secure 256-Bit SSL South African Checkout
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 border-t border-gray-800 mt-16 py-10 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center items-center gap-2 text-white font-black text-lg">
+                <i data-lucide="tag" class="w-5 h-5 text-red-500"></i> R35 Discount Store
+            </div>
+            <p class="max-w-xl mx-auto text-gray-400">
+                South Africa's premier factory direct clearance shop. All stock limited to warehouse availability. Instant online order processing.
+            </p>
+            <p class="text-gray-600">© 2026 R35 Discount Store. Built custom from scratch for South Africa.</p>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-red-500">
+        <div id="toastIcon" class="text-amber-400"><i data-lucide="zap" class="w-6 h-6"></i></div>
+        <div id="toastMessage" class="text-sm font-bold">Redirecting...</div>
+    </div>
+
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        const CHECKOUT_URL = "https://your-custom-checkout-url.com"; 
+
+        const PRODUCTS = [
+            {
+                id: "carrito-de-playa-yeti",
+                slug: "carrito-de-playa-yeti",
+                name: "Carrito De Playa Yeti All-Terrain Beach Cart",
+                category: "Outdoor & Beach",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 1999.00,
+                originalPriceFormatted: "R1,999.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 382,
+                badge: "98% OFF - R35 DEAL",
+                stockLeft: 4,
+                image: "https://varuste.net/tiedostot/1/kuva/tuote/600/12995035.jpg",
+                gallery: ["https://varuste.net/tiedostot/1/kuva/tuote/600/12995035.jpg"],
+                description: "🔥 SUPER DISCOUNT ALERT! Grab your Carrito De Playa Yeti all-terrain wagon right now for only R35.00 ZAR! Get your discount before it sells out, blah blah blah! Built with massive puncture-proof tires for deep beach sand.",
+                specs: ["Puncture-Proof Sand Wheels", "Heavy-Duty 150kg Capacity", "Weather-Proof Oxford Fabric", "Fold-Flat Compact Storage"],
+                colors: ["#0f172a", "#3b82f6"]
+            },
+            {
+                id: "rituals-gift-set",
+                slug: "rituals-gift-set",
+                name: "Rituals Luxury Body & Home Care Gift Set",
+                category: "Beauty & Care",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 1299.00,
+                originalPriceFormatted: "R1,299.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 512,
+                badge: "97% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80"],
+                description: "🌸 INSANE SUPER DISCOUNT! Spoil yourself with the world-renowned Rituals Luxury Spa Set for just R35.00 ZAR! Get your super discount now, blah blah blah! Limited warehouse clearance stock available today.",
+                specs: ["100% Natural Botanical Oils", "Full-Size 4-Piece Luxe Set", "Dermatologically Tested", "Premium Gift Packaging"],
+                colors: ["#f43f5e", "#fb7185"]
+            },
+            {
+                id: "caa-roadside-kit",
+                slug: "caa-roadside-kit",
+                name: "CAA Deluxe Roadside Emergency Kit",
+                category: "Automotive & Safety",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 999.00,
+                originalPriceFormatted: "R999.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 290,
+                badge: "96% OFF - R35 DEAL",
+                stockLeft: 9,
+                image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"],
+                description: "🚗 CRAZY SUPER DISCOUNT DEAL! Never get stranded on South African highways! Grab this official safety kit for an unbelievable R35.00 ZAR! Get your discount now, blah blah blah! Includes heavy-duty jumper cables and first aid essentials.",
+                specs: ["Heavy Duty Booster Cables", "Hi-Vis Safety Triangle & Vest", "LED Tactical Flashlight", "Heavy Duty Carrying Bag"],
+                colors: ["#dc2626", "#1e293b"]
+            },
+            {
+                id: "ninja-foodi-air-fryer",
+                slug: "ninja-foodi-air-fryer",
+                name: "Ninja Foodi Dual Zone Air Fryer",
+                category: "Kitchen Appliances",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 4899.00,
+                originalPriceFormatted: "R4,899.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 840,
+                badge: "96% OFF - R163 PREMIUM DEAL",
+                stockLeft: 3,
+                image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"],
+                description: "🍳 MASSIVE SUPER DISCOUNT! Revolutionize your kitchen with the Ninja Foodi DualZone Air Fryer for only R163.00 ZAR! Get your discount now, blah blah blah! Dual independent cooking baskets for ultimate cooking speed.",
+                specs: ["Dual Independent Baskets", "Match Cook & Smart Sync", "6 Custom Cooking Functions", "Dishwasher Safe Parts"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "samsung-galaxy-s25-ultra",
+                slug: "samsung-galaxy-s25-ultra",
+                name: "Samsung Galaxy S25 Ultra (5G)",
+                category: "Electronics",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 29999.00,
+                originalPriceFormatted: "R29,999.00 ZAR",
+                rating: 5.0,
+                reviewsCount: 924,
+                badge: "99% OFF - R163 PREMIUM DEAL",
+                stockLeft: 2,
+                image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80"],
+                description: "⚡ ONCE-IN-A-LIFETIME SUPER DISCOUNT STEAL! The flagship Samsung S25 Ultra for only R163.00 ZAR! Get your discount now, blah blah blah! Snapdragon 8 Elite and 200MP camera system.",
+                specs: ["200MP Pro-Grade Camera", "Snapdragon 8 Elite Processor", "Built-In S-Pen Stylus", "Titanium Armor Frame"],
+                colors: ["#334155", "#e2e8f0", "#1e293b"]
+            },
+            {
+                id: "takealot-gift-card",
+                slug: "takealot-gift-card",
+                name: "R10,000 Takealot.com Digital Gift Card",
+                category: "Vouchers & Cards",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 10000.00,
+                originalPriceFormatted: "R10,000.00 ZAR",
+                rating: 5.0,
+                reviewsCount: 890,
+                badge: "98% OFF - R163 PREMIUM DEAL",
+                stockLeft: 5,
+                image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80"],
+                description: "💳 SUPER DISCOUNT VOUCHER SALE! Get R10,000 Takealot credit for just R163.00 ZAR! Get your super discount now, blah blah blah! Instant code delivered straight to your email.",
+                specs: ["Instant Digital Email Delivery", "Valid on Takealot.com", "Redeemable for Any Products", "100% Guaranteed Balance"],
+                colors: ["#2563eb"]
+            },
+            {
+                id: "jbl-charge-6",
+                slug: "jbl-charge-6",
+                name: "JBL Charge 6 Portable Waterproof Speaker",
+                category: "Electronics & Audio",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 3899.00,
+                originalPriceFormatted: "R3,899.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 745,
+                badge: "95% OFF - R163 PREMIUM DEAL",
+                stockLeft: 4,
+                image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80"],
+                description: "🔊 MASSIVE SUPER DISCOUNT DEAL! Explosive JBL Pro Sound for only R163.00 ZAR! Get your discount now, blah blah blah! IP68 waterproof and built-in powerbank.",
+                specs: ["28 Hours Battery Playtime", "Built-in Phone Powerbank", "IP68 Dust & Waterproof", "JBL PartyBoost Pairing"],
+                colors: ["#09090b", "#dc2626"]
+            },
+            {
+                id: "philips-sonicare-toothbrush",
+                slug: "philips-sonicare-toothbrush",
+                name: "Philips Sonicare Electric Toothbrush",
+                category: "Health & Personal Care",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 2499.00,
+                originalPriceFormatted: "R2,499.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 412,
+                badge: "93% OFF - R163 DEAL",
+                stockLeft: 5,
+                image: "https://images.unsplash.com/photo-1559595500-e14b2d1c2c34?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1559595500-e14b2d1c2c34?auto=format&fit=crop&w=800&q=80"],
+                description: "🦷 SUPER DISCOUNT DENTAL REVOLUTION! Grab the Philips Sonicare Electric Toothbrush for only R163.00 ZAR! Get your super discount now, blah blah blah! Advanced sonic technology removes up to 7x more plaque than a manual toothbrush.",
+                specs: ["Advanced Sonic Technology", "Pressure Sensor Protection", "2 Intensity Settings", "Smarttimer & Quadpacer"],
+                colors: ["#ffffff", "#0284c7"]
+            },
+            {
+                id: "usb-desk-mini-fan",
+                slug: "usb-desk-mini-fan",
+                name: "Ultra-Quiet USB Desk Mini Fan",
+                category: "Home Appliances",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 198,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80"],
+                description: "💨 ULTRA-QUIET SUPER DISCOUNT! Stay cool during hot SA summer days with this USB Desk Mini Fan for only R35.00 ZAR! Get your discount now, blah blah blah! Whisper-quiet motor and 3 adjustable speeds.",
+                specs: ["Whisper-Quiet Operation", "USB Powered & Rechargeable", "3 Adjustable Speeds", "Compact Portable Design"],
+                colors: ["#18181b", "#ffffff"]
+            },
+            {
+                id: "camping-led-lantern-powerbank",
+                slug: "camping-led-lantern-powerbank",
+                name: "Waterproof Camping LED Lantern & Powerbank",
+                category: "Outdoor & Camping",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 799.00,
+                originalPriceFormatted: "R799.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 265,
+                badge: "95% OFF - R35 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80"],
+                description: "⛺ CAMPING SUPER DISCOUNT DEAL! Never be left in the dark with this Waterproof LED Lantern and Phone Powerbank for only R35.00 ZAR! Get your super discount now, blah blah blah! Built-in rechargeable battery.",
+                specs: ["IPX6 Waterproof Rating", "Built-In Emergency Powerbank", "Ultra-Bright 1000 Lumens", "Foldable Hanging Hook"],
+                colors: ["#f59e0b", "#27272a"]
+            },
+            {
+                id: "sony-wh-1000xm5",
+                slug: "sony-wh-1000xm5",
+                name: "Sony WH-1000XM5 Wireless Headphones",
+                category: "Electronics",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 6999.00,
+                originalPriceFormatted: "R6,999.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 412,
+                badge: "97% OFF - R163 DEAL",
+                stockLeft: 3,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"],
+                description: "🎧 SUPER DISCOUNT AUDIO STEAL! Industry-leading noise-canceling headphones for only R163.00 ZAR! Get your discount now, blah blah blah! 30-hour battery and supreme comfort.",
+                specs: ["Auto Noise Canceling", "30-Hour Battery Life", "Ultra-Soft Leather Cushions", "Crystal Clear Mic"],
+                colors: ["#18181b", "#f4f4f5"]
+            },
+            {
+                id: "apple-watch-ultra-2",
+                slug: "apple-watch-ultra-2",
+                name: "Apple Watch Ultra 2 (GPS + Cellular)",
+                category: "Wearables",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 17999.00,
+                originalPriceFormatted: "R17,999.00 ZAR",
+                rating: 5.0,
+                reviewsCount: 310,
+                badge: "99% OFF - R163 DEAL",
+                stockLeft: 2,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"],
+                description: "⌚ FLAGSHIP SMARTWATCH SUPER DISCOUNT! Aerospace-grade titanium for only R163.00 ZAR! Get your discount now, blah blah blah! Dual-frequency GPS and 100m water resistance.",
+                specs: ["49mm Titanium Case", "Dual-Frequency GPS", "Always-On Retina Display", "100m Water Resistant"],
+                colors: ["#3f3f46", "#f59e0b"]
+            },
+            {
+                id: "ceramic-coffee-mug-set",
+                slug: "ceramic-coffee-mug-set",
+                name: "Handcrafted Ceramic Coffee Mug Set (4-Pack)",
+                category: "Kitchen",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 599.00,
+                originalPriceFormatted: "R599.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 184,
+                badge: "94% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"],
+                description: "☕ KITCHEN SUPER DISCOUNT! Beautiful ceramic glaze mugs set of 4 for only R35.00 ZAR! Get your discount now, blah blah blah! Microwave and dishwasher safe.",
+                specs: ["100% Lead-Free Ceramic", "Microwave & Dishwasher Safe", "Ergonomic Handle", "Matte Speckled Finish"],
+                colors: ["#78716c", "#e7e5e4"]
+            },
+            {
+                id: "pro-chef-knife-set",
+                slug: "pro-chef-knife-set",
+                name: "Professional Stainless Steel Chef Knife Set",
+                category: "Kitchen",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 899.00,
+                originalPriceFormatted: "R899.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 225,
+                badge: "96% OFF - R35 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=800&q=80"],
+                description: "🔪 CHEF KNIFE SUPER DISCOUNT! High-carbon stainless steel knives for only R35.00 ZAR! Get your discount now, blah blah blah! Precision laser tested edges.",
+                specs: ["High-Carbon Stainless Steel", "Ergonomic Non-Slip Handles", "Rust Resistant", "Precision Laser Tested"],
+                colors: ["#09090b", "#71717a"]
+            },
+            {
+                id: "mechanical-gaming-keyboard",
+                slug: "mechanical-gaming-keyboard",
+                name: "RGB Mechanical Gaming Keyboard",
+                category: "Gaming & Tech",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 1999.00,
+                originalPriceFormatted: "R1,999.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 342,
+                badge: "91% OFF - R163 DEAL",
+                stockLeft: 4,
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80"],
+                description: "⌨️ GAMING SUPER DISCOUNT! Ultra-responsive mechanical switches with customizable RGB lighting for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Tactile Mechanical Switches", "Per-Key RGB Lighting", "Anti-Ghosting Technology", "Durable Aluminum Frame"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "wireless-charging-pad",
+                slug: "wireless-charging-pad",
+                name: "3-in-1 Fast Wireless Charging Station",
+                category: "Electronics",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 699.00,
+                originalPriceFormatted: "R699.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 156,
+                badge: "95% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1622445275576-721325763bdc?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1622445275576-721325763bdc?auto=format&fit=crop&w=800&q=80"],
+                description: "⚡ SUPER DISCOUNT CHARGER! Charge your phone, watch, and earbuds simultaneously for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Simultaneous 3-Device Charging", "Qi-Certified Fast Charge", "Over-Voltage Protection", "Foldable Travel Design"],
+                colors: ["#27272a", "#ffffff"]
+            },
+            {
+                id: "stainless-steel-water-bottle",
+                slug: "stainless-steel-water-bottle",
+                name: "Insulated Stainless Steel Water Bottle (1L)",
+                category: "Outdoor & Sports",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 289,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 10,
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80"],
+                description: "🍼 SUPER DISCOUNT BOTTLE! Keeps drinks ice cold for 24 hours or hot for 12 hours for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Double-Wall Vacuum Insulation", "18/8 Pro-Grade Steel", "Leak-Proof Lid", "BPA Free"],
+                colors: ["#0284c7", "#10b981", "#ef4444"]
+            },
+            {
+                id: "smart-led-desk-lamp",
+                slug: "smart-led-desk-lamp",
+                name: "Dimmable Smart LED Desk Lamp with USB Port",
+                category: "Home & Office",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 799.00,
+                originalPriceFormatted: "R799.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 195,
+                badge: "95% OFF - R35 DEAL",
+                stockLeft: 5,
+                image: "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=800&q=80"],
+                description: "💡 SUPER DISCOUNT LAMP! Eye-caring LED desk lamp with adjustable brightness levels for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Touch Control Brightness", "Built-In USB Charging Port", "Energy Saving LEDs", "Flexible Gooseneck"],
+                colors: ["#ffffff", "#18181b"]
+            },
+            {
+                id: "portable-jump-starter",
+                slug: "portable-jump-starter",
+                name: "Heavy-Duty Car Battery Jump Starter & Powerbank",
+                category: "Automotive",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 2499.00,
+                originalPriceFormatted: "R2,499.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 412,
+                badge: "93% OFF - R163 DEAL",
+                stockLeft: 3,
+                image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"],
+                description: "🚗 SUPER DISCOUNT CAR ESSENTIAL! Never get stranded with a dead battery again for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["2000A Peak Current", "Built-in LED Flashlight", "Reverse Polarity Protection", "USB Quick Charge"],
+                colors: ["#dc2626", "#18181b"]
+            },
+            {
+                id: "aeropress-coffee-maker",
+                slug: "aeropress-coffee-maker",
+                name: "Portable Espresso & Coffee Maker",
+                category: "Kitchen",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 899.00,
+                originalPriceFormatted: "R899.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 310,
+                badge: "96% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"],
+                description: "☕ SUPER DISCOUNT BREW! Brew rich, smooth coffee anywhere in minutes for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Micro-filter Technology", "Rapid Brewing", "BPA Free & Durable", "Travel Friendly"],
+                colors: ["#3f3f46"]
+            },
+            {
+                id: "smart-body-fat-scale",
+                slug: "smart-body-fat-scale",
+                name: "Bluetooth Smart Digital Body Fat Scale",
+                category: "Health & Fitness",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 699.00,
+                originalPriceFormatted: "R699.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 180,
+                badge: "95% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80"],
+                description: "⚖️ SUPER DISCOUNT SCALE! Track 13 essential body composition metrics via smartphone app for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["13 Body Metrics", "Bluetooth App Sync", "Tempered Glass Platform", "Auto-Calibration"],
+                colors: ["#ffffff", "#18181b"]
+            },
+            {
+                id: "ultrasonic-essential-oil-diffuser",
+                slug: "ultrasonic-essential-oil-diffuser",
+                name: "Ultrasonic Aromatherapy Essential Oil Diffuser",
+                category: "Home & Wellness",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 599.00,
+                originalPriceFormatted: "R599.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 220,
+                badge: "94% OFF - R35 DEAL",
+                stockLeft: 9,
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80"],
+                description: "🌿 SUPER DISCOUNT WELLNESS! Transform your living space with soothing aromatherapy for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Quiet Ultrasonic Tech", "7 LED Mood Colors", "Auto Shut-Off Protection", "Large Capacity Tank"],
+                colors: ["#fef08a", "#bae6fd"]
+            },
+            {
+                id: "ergonomic-memory-foam-pillow",
+                slug: "ergonomic-memory-foam-pillow",
+                name: "Ergonomic Cervical Memory Foam Pillow",
+                category: "Home & Living",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 799.00,
+                originalPriceFormatted: "R799.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 310,
+                badge: "95% OFF - R35 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80"],
+                description: "💤 SUPER DISCOUNT SLEEP! Wake up without neck pain using orthopedic memory foam for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["High-Density Memory Foam", "Ergonomic Contour Design", "Breathable Washable Cover", "Hypoallergenic"],
+                colors: ["#ffffff"]
+            },
+            {
+                id: "electric-wine-opener-set",
+                slug: "electric-wine-opener-set",
+                name: "Automatic Electric Wine Bottle Opener Set",
+                category: "Kitchen & Bar",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 599.00,
+                originalPriceFormatted: "R599.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 145,
+                badge: "94% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80"],
+                description: "🍷 SUPER DISCOUNT BAR ACCESSORY! Open wine bottles effortlessly in seconds for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Opens in 6 Seconds", "Includes Foil Cutter", "Rechargeable Battery", "Sleek Stainless Steel"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "smart-doorbell-camera",
+                slug: "smart-doorbell-camera",
+                name: "Wireless Video Doorbell Camera with HD Night Vision",
+                category: "Smart Home",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 2299.00,
+                originalPriceFormatted: "R2,299.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 290,
+                badge: "92% OFF - R163 DEAL",
+                stockLeft: 4,
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"],
+                description: "📹 SUPER DISCOUNT SECURITY! Protect your home with HD video surveillance and two-way audio for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["1080p HD Wide-Angle", "Motion Detection Alerts", "Night Vision", "Two-Way Talk"],
+                colors: ["#18181b", "#ffffff"]
+            },
+            {
+                id: "mini-projector-1080p",
+                slug: "mini-projector-1080p",
+                name: "Portable HD Home Theater Mini Projector",
+                category: "Electronics",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 3499.00,
+                originalPriceFormatted: "R3,499.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 380,
+                badge: "95% OFF - R163 DEAL",
+                stockLeft: 3,
+                image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80"],
+                description: "🎬 CINEMA SUPER DISCOUNT! Turn any wall into a big screen movie theater for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Supports 1080p HD", "HDMI & USB Inputs", "Built-In Speaker", "Compact Pocket Size"],
+                colors: ["#ffffff", "#f1f5f9"]
+            },
+            {
+                id: "cordless-electric-screwdriver",
+                slug: "cordless-electric-screwdriver",
+                name: "Precision Cordless Electric Screwdriver Kit",
+                category: "Tools & DIY",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 1599.00,
+                originalPriceFormatted: "R1,599.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 215,
+                badge: "89% OFF - R163 DEAL",
+                stockLeft: 5,
+                image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"],
+                description: "🛠️ SUPER DISCOUNT DIY! Tackle repairs and assembly with ease using this electric precision screwdriver for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Rechargeable Lithium Battery", "Includes 24 Precision Bits", "LED Work Light", "Magnetic Bit Holder"],
+                colors: ["#ef4444", "#18181b"]
+            },
+            {
+                id: "electric-milk-frother",
+                slug: "electric-milk-frother",
+                name: "Handheld Electric Milk Frother & Whisk",
+                category: "Kitchen",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 299.00,
+                originalPriceFormatted: "R299.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 260,
+                badge: "88% OFF - R35 DEAL",
+                stockLeft: 10,
+                image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"],
+                description: "☕ SUPER DISCOUNT FROTHER! Create creamy cafe-quality froth in seconds for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Stainless Steel Whisk", "Battery Powered", "Easy One-Touch Operation", "Multipurpose Mixing"],
+                colors: ["#18181b", "#silver"]
+            },
+            {
+                id: "smart-fitness-tracker",
+                slug: "smart-fitness-tracker",
+                name: "Waterproof Smart Fitness Tracker & Heart Rate Monitor",
+                category: "Wearables",
+                price: 163.00,
+                priceFormatted: "R163.00 ZAR",
+                originalPrice: 1299.00,
+                originalPriceFormatted: "R1,299.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 340,
+                badge: "87% OFF - R163 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=800&q=80"],
+                description: "⌚ SUPER DISCOUNT FITNESS! Monitor your health, steps, and sleep quality for only R163.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Heart Rate & Sleep Tracking", "IP67 Waterproof", "Color Touch Display", "7-Day Battery Life"],
+                colors: ["#18181b", "#0284c7"]
+            },
+            {
+                id: "smart-plug-wifi",
+                slug: "smart-plug-wifi",
+                name: "WiFi Smart Plug with Energy Monitoring (2-Pack)",
+                category: "Smart Home",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 190,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"],
+                description: "🔌 SUPER DISCOUNT SMART HOME! Control your home appliances from anywhere using your smartphone for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Voice Control Compatible", "Energy Usage Monitor", "Timer & Schedule Setup", "No Hub Required"],
+                colors: ["#ffffff"]
+            },
+            {
+                id: "facial-cleansing-brush",
+                slug: "facial-cleansing-brush",
+                name: "Sonic Silicone Facial Cleansing & Anti-Aging Brush",
+                category: "Beauty & Care",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 240,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"],
+                description: "✨ SUPER DISCOUNT SKINCARE! Achieve glowing skin with sonic pulsation technology for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Food-Grade Silicone", "Adjustable Vibration Speeds", "IPX7 Waterproof", "Deep Pore Cleansing"],
+                colors: ["#f43f5e", "#ec4899"]
+            },
+            {
+                id: "magnetic-car-phone-mount",
+                slug: "magnetic-car-phone-mount",
+                name: "MagSafe Compatible Magnetic Car Phone Mount",
+                category: "Automotive",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 399.00,
+                originalPriceFormatted: "R399.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 310,
+                badge: "91% OFF - R35 DEAL",
+                stockLeft: 9,
+                image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80"],
+                description: "🚗 SUPER DISCOUNT CAR MOUNT! Secure your phone instantly on any dashboard with strong magnets for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Ultra-Strong Neodymium Magnets", "360-Degree Rotation", "Secure Dashboard Clamp", "One-Hand Operation"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "wireless-presenter-clicker",
+                slug: "wireless-presenter-clicker",
+                name: "USB Wireless Presentation Clicker & Laser Pointer",
+                category: "Office & Tech",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 399.00,
+                originalPriceFormatted: "R399.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 130,
+                badge: "91% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"],
+                description: "📊 SUPER DISCOUNT PRESENTER! Deliver professional slide shows seamlessly for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Plug-and-Play USB Receiver", "Bright Red Laser Pointer", "Ergonomic Grip", "Long Wireless Range"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "smart-rgb-light-strip",
+                slug: "smart-rgb-light-strip",
+                name: "5M Smart WiFi RGB LED Strip Lights with Remote",
+                category: "Smart Home",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 420,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 10,
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"],
+                description: "💡 SUPER DISCOUNT LIGHTING! Transform your bedroom or TV room with millions of vibrant colors for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["App & Voice Control", "Music Sync Mode", "Cut-to-Fit Design", "Strong Adhesive Backing"],
+                colors: ["#000000"]
+            },
+            {
+                id: "solar-outdoor-security-lights",
+                slug: "solar-outdoor-security-lights",
+                name: "Motion Sensor Solar Outdoor LED Security Lights",
+                category: "Outdoor & Garden",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 599.00,
+                originalPriceFormatted: "R599.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 280,
+                badge: "94% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"],
+                description: "☀️ SUPER DISCOUNT SECURITY! Brighten your yard and deter intruders with 100% solar power for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["PIR Motion Sensor", "Weatherproof IP65", "Solar Powered Battery", "Easy Wireless Mount"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "digital-luggage-scale",
+                slug: "digital-luggage-scale",
+                name: "Portable Electronic Digital Luggage Weight Scale",
+                category: "Travel",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 299.00,
+                originalPriceFormatted: "R299.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 165,
+                badge: "88% OFF - R35 DEAL",
+                stockLeft: 9,
+                image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"],
+                description: "✈️ SUPER DISCOUNT TRAVEL! Never pay airline overweight bag fees again for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["50kg / 110lb Capacity", "LCD Backlit Display", "Data Lock Function", "Compact Lightweight Design"],
+                colors: ["#silver", "#18181b"]
+            },
+            {
+                id: "electric-salt-pepper-grinder",
+                slug: "electric-salt-pepper-grinder",
+                name: "Gravity Electric Salt and Pepper Grinder Set",
+                category: "Kitchen",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 190,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=800&q=80"],
+                description: "🧂 SUPER DISCOUNT KITCHEN! Season meals effortlessly with one-touch gravity tilt for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Gravity Operation", "Adjustable Coarseness", "Built-In LED Light", "Stainless Steel Build"],
+                colors: ["#3f3f46"]
+            },
+            {
+                id: "smart-water-leak-detector",
+                slug: "smart-water-leak-detector",
+                name: "WiFi Smart Water Leak Detector & Alarm",
+                category: "Smart Home",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 399.00,
+                originalPriceFormatted: "R399.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 110,
+                badge: "91% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1584467735811-64860d5b4528?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1584467735811-64860d5b4528?auto=format&fit=crop&w=800&q=80"],
+                description: "💧 SUPER DISCOUNT HOME SAFETY! Prevent costly water damage with instant phone alerts for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Instant App Alerts", "90dB Loud Alarm", "Waterproof Design", "Long Battery Life"],
+                colors: ["#ffffff"]
+            },
+            {
+                id: "bluetooth-sleep-mask",
+                slug: "bluetooth-sleep-mask",
+                name: "Wireless Bluetooth Music Sleep Eye Mask",
+                category: "Travel & Sleep",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 230,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80"],
+                description: "😴 SUPER DISCOUNT SLEEP AID! Fall asleep listening to calming music or white noise for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Built-in Flat Speakers", "100% Blackout Design", "Breathable Fabric", "USB Rechargeable"],
+                colors: ["#18181b", "#3b82f6"]
+            },
+            {
+                id: "stainless-steel-lunch-box",
+                slug: "stainless-steel-lunch-box",
+                name: "Insulated Stainless Steel Bento Lunch Box",
+                category: "Kitchen & Travel",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 175,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 9,
+                image: "https://images.unsplash.com/photo-1585325701165-351af916e581?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1585325701165-351af916e581?auto=format&fit=crop&w=800&q=80"],
+                description: "🍱 SUPER DISCOUNT LUNCH! Keep your meals fresh and organized all day for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Leak-Proof Compartments", "Food-Grade Stainless Steel", "Microwave Safe Tray", "Easy to Clean"],
+                colors: ["#38bdf8", "#f43f5e"]
+            },
+            {
+                id: "wireless-vertical-mouse",
+                slug: "wireless-vertical-mouse",
+                name: "Ergonomic Wireless Vertical Optical Mouse",
+                category: "Office & Tech",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 210,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 6,
+                image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80"],
+                description: "🖱️ SUPER DISCOUNT ERGONOMIC! Eliminate wrist strain during long work hours for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Natural Hand Position", "Adjustable DPI Levels", "Silent Click Buttons", "Wireless USB Receiver"],
+                colors: ["#18181b"]
+            },
+            {
+                id: "smart-jump-rope",
+                slug: "smart-jump-rope",
+                name: "Digital Counting Smart Fitness Jump Rope",
+                category: "Health & Fitness",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 399.00,
+                originalPriceFormatted: "R399.00 ZAR",
+                rating: 4.7,
+                reviewsCount: 140,
+                badge: "91% OFF - R35 DEAL",
+                stockLeft: 8,
+                image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"],
+                description: "🤸 SUPER DISCOUNT FITNESS! Track jumps, calories burned, and workout time instantly for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["HD LCD Counter Display", "Tangle-Free Steel Cable", "Weighted Ergonomic Handles", "Adjustable Length"],
+                colors: ["#000000", "#ef4444"]
+            },
+            {
+                id: "mini-desk-vacuum",
+                slug: "mini-desk-vacuum",
+                name: "Portable Cordless Mini Desktop Vacuum Cleaner",
+                category: "Office & Home",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 399.00,
+                originalPriceFormatted: "R399.00 ZAR",
+                rating: 4.8,
+                reviewsCount: 195,
+                badge: "91% OFF - R35 DEAL",
+                stockLeft: 7,
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80"],
+                description: "🧹 SUPER DISCOUNT CLEANING! Clean crumbs, dust, and keyboard debris in seconds for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["High Suction Power", "Battery Operated", "Compact 360-Degree Design", "Easy Empty Filter"],
+                colors: ["#ffffff", "#18181b"]
+            },
+            {
+                id: "smart-pet-laser-toy",
+                slug: "smart-pet-laser-toy",
+                name: "Automatic Interactive Smart LED Cat Laser Toy",
+                category: "Pets",
+                price: 35.00,
+                priceFormatted: "R35.00 ZAR",
+                originalPrice: 499.00,
+                originalPriceFormatted: "R499.00 ZAR",
+                rating: 4.9,
+                reviewsCount: 220,
+                badge: "92% OFF - R35 DEAL",
+                stockLeft: 5,
+                image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80",
+                gallery: ["https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80"],
+                description: "🐱 SUPER DISCOUNT PET TOY! Keep your cat entertained for hours with automated laser patterns for only R35.00 ZAR! Get your discount now, blah blah blah!",
+                specs: ["Adjustable Laser Angles", "Automatic Shut-Off", "USB Rechargeable", "Quiet Motor"],
+                colors: ["#ffffff", "#f59e0b"]
+            }
+        ];
+
+        let currentSelectedCategory = "All";
+        let activeProduct = null;
+        let selectedQuantity = 1;
+
+        function startCountdown() {
+            let seconds = 2 * 3600 + 14 * 60 + 59;
+            const timerElem = document.getElementById('topBarTimer');
+            setInterval(() => {
+                if (seconds <= 0) seconds = 2 * 3600;
+                seconds--;
+                const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+                const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+                const s = String(seconds % 60).padStart(2, '0');
+                if (timerElem) timerElem.innerText = `${h}:${m}:${s}`;
+            }, 1000);
+        }
+
+        function getProductFromUrl() {
+            const hash = window.location.hash.replace(/^#\/?/, '');
+            const params = new URLSearchParams(window.location.search);
+            const productQuery = params.get('product') || params.get('p');
+
+            let targetSlug = null;
+            if (hash.startsWith('product=')) {
+                targetSlug = hash.replace('product=', '');
+            } else if (hash.startsWith('product-')) {
+                targetSlug = hash.replace('product-', '');
+            } else if (hash) {
+                targetSlug = hash;
+            } else if (productQuery) {
+                targetSlug = productQuery;
+            }
+
+            if (targetSlug) {
+                return PRODUCTS.find(p => p.slug === targetSlug || p.id === targetSlug);
+            }
+            return null;
+        }
+
+        function handleRouting() {
+            const matchedProduct = getProductFromUrl();
+            if (matchedProduct) {
+                renderProductDetailView(matchedProduct);
+            } else {
+                renderCatalogView();
+            }
+        }
+
+        function navigate(view, productId = null) {
+            if (view === 'catalog') {
+                window.location.hash = '';
+                renderCatalogView();
+            } else if (view === 'detail' && productId) {
+                const prod = PRODUCTS.find(p => p.id === productId);
+                if (prod) {
+                    window.location.hash = `product-${prod.slug}`;
+                }
+            }
+        }
+
+        function renderCatalogView() {
+            document.getElementById('catalogView').classList.remove('hidden');
+            document.getElementById('productDetailView').classList.add('hidden');
+            document.getElementById('searchBarContainer').classList.remove('hidden');
+            document.getElementById('mobileSearchContainer').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderProductDetailView(product) {
+            activeProduct = product;
+            renderProductDetail(product);
+            document.getElementById('catalogView').classList.add('hidden');
+            document.getElementById('productDetailView').classList.remove('hidden');
+            document.getElementById('searchBarContainer').classList.add('hidden');
+            document.getElementById('mobileSearchContainer').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyAdDeepLink() {
+            if (!activeProduct) return;
+            const url = `${window.location.origin}${window.location.pathname}#product-${activeProduct.slug}`;
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = url;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            showToast("✅ Direct Ad Link Copied to Clipboard!");
+        }
+
+        function initCategoryTabs() {
+            const categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
+            const container = document.getElementById('categoryTabs');
+            
+            container.innerHTML = categories.map(cat => `
+                <button onclick="setCategory('${cat}')" 
+                    class="px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-full transition whitespace-nowrap ${cat === currentSelectedCategory ? 'bg-red-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function setCategory(cat) {
+            currentSelectedCategory = cat;
+            initCategoryTabs();
+            handleFilterChange();
+        }
+
+        function handleFilterChange() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+            const sortSelect = document.getElementById('sortSelect');
+            const sortBy = sortSelect ? sortSelect.value : 'featured';
+
+            let filtered = PRODUCTS.filter(p => {
+                const matchesCategory = currentSelectedCategory === 'All' || p.category === currentSelectedCategory;
+                const matchesSearch = p.name.toLowerCase().includes(searchTerm) || p.description.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+            if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+            if (sortBy === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+            if (sortBy === 'featured') filtered.sort((a, b) => ((b.originalPrice - b.price)/b.originalPrice) - ((a.originalPrice - a.price)/a.originalPrice));
+
+            renderGrid(filtered);
+        }
+
+        function renderGrid(products) {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (!grid) return;
+
+            if (products.length === 0) {
+                grid.innerHTML = '';
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
+            }
+
+            if (emptyState) emptyState.classList.add('hidden');
+            grid.innerHTML = products.map(product => {
+                const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+
+                return `
+                <div onclick="navigate('detail', '${product.id}')" class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl transition duration-300 flex flex-col justify-between overflow-hidden cursor-pointer relative">
+                    <div class="absolute top-3 left-3 right-3 z-10 flex items-center justify-between">
+                        <span class="px-2.5 py-1 bg-red-600 text-white text-[10px] font-black uppercase tracking-wider rounded-lg shadow-md">
+                            -${discountPercent}% OFF
+                        </span>
+                        <span class="px-2 py-0.5 bg-amber-500 text-slate-900 text-[10px] font-extrabold uppercase rounded shadow">
+                            Stock: ${product.stockLeft} left
+                        </span>
+                    </div>
+
+                    <div class="relative aspect-square bg-white p-6 overflow-hidden flex items-center justify-center border-b border-gray-100">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain group-hover:scale-105 transition duration-500" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+                                <span class="font-bold text-gray-500 uppercase text-[10px] tracking-wider">${product.category}</span>
+                                <span class="flex items-center gap-1 font-bold text-amber-500">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i> ${product.rating}
+                                </span>
+                            </div>
+                            <h3 class="font-black text-gray-900 group-hover:text-red-600 transition text-base leading-snug line-clamp-2">
+                                ${product.name}
+                            </h3>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gray-400 uppercase font-black block">Super Price</span>
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xl font-black text-red-600">${product.priceFormatted}</span>
+                                    <span class="text-xs text-gray-400 line-through">${product.originalPriceFormatted}</span>
+                                </div>
+                            </div>
+                            <button class="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-1">
+                                Claim <i data-lucide="zap" class="w-3.5 h-3.5 fill-current"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function resetFilters() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
+            const mobileSearchInput = document.getElementById('mobileSearchInput');
+            if (mobileSearchInput) mobileSearchInput.value = '';
+            currentSelectedCategory = 'All';
+            initCategoryTabs();
+            handleFilterChange();
+        }
+
+        function syncMobileSearch(val) {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = val;
+            handleFilterChange();
+        }
+
+        function renderProductDetail(product) {
+            selectedQuantity = 1;
+            const qtyDisplay = document.getElementById('quantityDisplay');
+            if (qtyDisplay) qtyDisplay.innerText = selectedQuantity;
+
+            const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+
+            document.getElementById('breadcrumbCategory').innerText = product.category;
+            document.getElementById('breadcrumbTitle').innerText = product.name;
+            document.getElementById('detailMainImage').src = product.image;
+            document.getElementById('detailBadge').innerText = `${discountPercent}% OFF ONE-TIME DEAL`;
+            document.getElementById('stockIndicator').innerText = `Only ${product.stockLeft} Left at this Price!`;
+            document.getElementById('detailCategory').innerText = product.category;
+            document.getElementById('detailTitle').innerText = product.name;
+            document.getElementById('detailRating').innerText = product.rating;
+            document.getElementById('detailReviewCount').innerText = `(${product.reviewsCount}+ verified SA buyers)`;
+            document.getElementById('detailPrice').innerText = product.priceFormatted;
+            document.getElementById('detailOriginalPrice').innerText = product.originalPriceFormatted;
+            document.getElementById('detailSavingsTag').innerText = `SAVE ${discountPercent}% NOW`;
+            document.getElementById('detailDescription').innerText = product.description;
+
+            const thumbContainer = document.getElementById('detailThumbnails');
+            thumbContainer.innerHTML = product.gallery.map(imgUrl => `
+                <button onclick="changeMainImage('${imgUrl}')" class="w-16 h-16 rounded-xl overflow-hidden border-2 border-red-500 hover:border-red-600 transition flex-shrink-0 bg-white p-1 shadow-sm">
+                    <img src="${imgUrl}" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80'">
+                </button>
+            `).join('');
+
+            const colorContainer = document.getElementById('colorVariants');
+            colorContainer.innerHTML = product.colors.map(hex => `
+                <button onclick="selectColor(this)" class="w-8 h-8 rounded-full border-2 border-white ring-2 ring-gray-300 focus:ring-red-600 transition shadow" style="background-color: ${hex}"></button>
+            `).join('');
+
+            const specsContainer = document.getElementById('detailSpecs');
+            specsContainer.innerHTML = product.specs.map(spec => `
+                <li class="flex items-center gap-1.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i> ${spec}
+                </li>
+            `).join('');
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function changeMainImage(url) {
+            document.getElementById('detailMainImage').src = url;
+        }
+
+        function selectColor(btn) {
+            const parent = btn.parentElement;
+            Array.from(parent.children).forEach(c => c.classList.remove('ring-red-600'));
+            btn.classList.add('ring-red-600');
+        }
+
+        function adjustQuantity(delta) {
+            if (selectedQuantity + delta >= 1) {
+                selectedQuantity += delta;
+                document.getElementById('quantityDisplay').innerText = selectedQuantity;
+            }
+        }
+
+        function handleBuyNow() {
+            if (!activeProduct) return;
+            const cartBadge = document.getElementById('cartBadge');
+            if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText || '0') + selectedQuantity;
+
+            showToast(`Securing discount price for ${activeProduct.name}... Redirecting to South African checkout!`);
+
+            setTimeout(() => {
+                window.location.href = CHECKOUT_URL;
+            }, 1200);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            if (!toast || !toastMessage) return;
+            toastMessage.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+            initCategoryTabs();
+            handleFilterChange();
+            handleRouting();
+        });
+
+        window.addEventListener('hashchange', handleRouting);
+    </script>
+</body>
+</html>
