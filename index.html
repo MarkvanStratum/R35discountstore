@@ -2,6 +2,22 @@
 <html lang="en" class="h-full bg-gray-50">
 <head>
     <meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '976999728236306');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R35 Discount Store | South Africa's Biggest Deals</title>
     <!-- Tailwind CSS for modern responsive styling -->
@@ -1291,8 +1307,9 @@
         ];
 
         let currentSelectedCategory = "All";
-        let activeProduct = null;
-        let selectedQuantity = 1;
+let activeProduct = null;
+let selectedQuantity = 1;
+let lastTrackedProductRoute = null;
 
         function startCountdown() {
             let seconds = 2 * 3600 + 14 * 60 + 59;
@@ -1370,7 +1387,8 @@
         }
 
         function renderCatalogView() {
-            document.getElementById('catalogView').classList.remove('hidden');
+    lastTrackedProductRoute = null;
+    document.getElementById('catalogView').classList.remove('hidden');
             document.getElementById('productDetailView').classList.add('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
@@ -1380,9 +1398,24 @@
         }
 
         function renderProductDetailView(product) {
-            activeProduct = product;
-            renderProductDetail(product);
-            document.getElementById('catalogView').classList.add('hidden');
+    activeProduct = product;
+    renderProductDetail(product);
+
+    if (lastTrackedProductRoute !== product.slug) {
+        lastTrackedProductRoute = product.slug;
+
+        if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', {
+                content_ids: [product.id],
+                content_name: product.name,
+                content_type: 'product',
+                value: product.price,
+                currency: 'ZAR'
+            });
+        }
+    }
+
+    document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
@@ -1615,12 +1648,23 @@
         function handleBuyNow() {
             if (!activeProduct) return;
 
+if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout', {
+        content_ids: [activeProduct.id],
+        content_name: activeProduct.name,
+        content_type: 'product',
+        value: activeProduct.price * selectedQuantity,
+        currency: 'ZAR',
+        num_items: selectedQuantity
+    });
+}
+
             const cartBadge = document.getElementById('cartBadge');
             if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText || '0') + selectedQuantity;
 
             // Grab Facebook pixel ID from URL query or browser cookies
             const urlParams = new URLSearchParams(window.location.search);
-            let fbPixelId = urlParams.get('pixel') || urlParams.get('fbpixel') || getCookie('_fbp') || 'DEFAULT_PIXEL';
+            let fbPixelId = '976999728236306';
 
             let finalCheckoutUrl = "";
             const encodedTitle = encodeURIComponent(activeProduct.name);
