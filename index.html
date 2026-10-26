@@ -185,6 +185,22 @@ fbq('track', 'PageView');
                 </button>
             </div>
 
+            <!-- Seamless 5-Minute Timer Banner on Product Page -->
+            <div class="bg-gradient-to-r from-red-600 to-amber-600 text-white p-4 rounded-2xl shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3 border border-red-400">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="clock" class="w-6 h-6 animate-pulse text-yellow-300"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black uppercase tracking-wider">Discount Reservation Active!</h4>
+                        <p class="text-xs text-red-100">Your special qualification rate is reserved. Complete your order before the timer expires.</p>
+                    </div>
+                </div>
+                <div class="bg-red-950/80 text-yellow-300 px-4 py-2 rounded-xl font-mono text-lg font-black tracking-widest border border-red-500/50 shadow-inner">
+                    <span id="productPageTimer">05:00</span>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-md">
                 
                 <!-- Left: Gallery -->
@@ -503,21 +519,35 @@ fbq('track', 'PageView');
             </div>
 
             <!-- Success / Final Step -->
-            <div id="funnelSuccessStep" class="funnel-step space-y-6 text-center py-4 hidden">
-                <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100">
-                    <i data-lucide="check-circle" class="w-10 h-10"></i>
+            <div id="funnelSuccessStep" class="funnel-step space-y-5 text-center py-2 hidden">
+                <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100">
+                    <i data-lucide="check-circle" class="w-8 h-8"></i>
                 </div>
                 
-                <div class="space-y-2">
+                <div class="space-y-1.5">
                     <span class="px-3 py-1 bg-red-100 text-red-600 text-xs font-black uppercase tracking-wider rounded-full">CONGRATULATIONS! 🎉</span>
                     <h4 class="text-xl font-black text-gray-900">You Qualify for the Mega Discount!</h4>
-                    <p class="text-sm text-gray-600 font-medium">
-                        You have unlocked the exclusive clearance rate for this item with <strong id="successDiscountText" class="text-red-600 font-black">98% OFF</strong>! Original retail price was <strong id="successOriginalPriceText" class="text-gray-900 font-black">R1,999.00 ZAR</strong>.
+                    <p class="text-xs sm:text-sm text-gray-600 font-medium">
+                        You unlocked the exclusive clearance rate with <strong id="successDiscountText" class="text-red-600 font-black">98% OFF</strong>! Original retail price was <strong id="successOriginalPriceText" class="text-gray-900 font-black">R1,999.00 ZAR</strong>.
                     </p>
                 </div>
 
-                <button onclick="closeFunnelAndReveal()" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl shadow-red-200 transition-all transform hover:-translate-y-0.5 text-base uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2">
-                    <i data-lucide="zap" class="w-5 h-5 fill-current"></i> Claim Your Deal Now
+                <!-- 5-Minute Countdown Timer Box in Quiz Success Screen -->
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-left">
+                        <i data-lucide="clock" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-amber-800 block">Offer Still Available For:</span>
+                            <span class="text-xs text-amber-900 font-medium">Claim before timer hits zero</span>
+                        </div>
+                    </div>
+                    <div class="bg-red-600 text-white px-3 py-1.5 rounded-xl font-mono font-black text-sm tracking-wider shadow">
+                        <span id="quizSuccessTimer">05:00</span>
+                    </div>
+                </div>
+
+                <button onclick="closeFunnelAndReveal()" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-xl shadow-red-200 transition-all transform hover:-translate-y-0.5 text-sm uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2">
+                    <i data-lucide="zap" class="w-4 h-4 fill-current"></i> Claim Your Deal Now
                 </button>
             </div>
 
@@ -1409,6 +1439,11 @@ fbq('track', 'PageView');
         let selectedQuantity = 1;
         let lastTrackedProductRoute = null;
 
+        // Countdown State Variables
+        let quizTimerInterval = null;
+        let productTimerInterval = null;
+        let remainingSeconds = 300; // 5 minutes (300 seconds)
+
         function startCountdown() {
             let seconds = 2 * 3600 + 14 * 60 + 59;
             const timerElem = document.getElementById('topBarTimer');
@@ -1486,6 +1521,9 @@ fbq('track', 'PageView');
 
         function renderCatalogView() {
             lastTrackedProductRoute = null;
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+            if (productTimerInterval) clearInterval(productTimerInterval);
+
             document.getElementById('catalogView').classList.remove('hidden');
             document.getElementById('productDetailView').classList.add('hidden');
             document.getElementById('termsView').classList.add('hidden');
@@ -1527,10 +1565,15 @@ fbq('track', 'PageView');
             }, 1000);
         }
 
-        // FUNNEL MODAL LOGIC
+        // FUNNEL MODAL LOGIC WITH 5-MIN TIMER SYNC
         function openFunnelModal(product) {
             const modal = document.getElementById('funnelModal');
             if (!modal) return;
+
+            // Reset timer back to 5 minutes (300 seconds) on fresh landing
+            remainingSeconds = 300;
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+            if (productTimerInterval) clearInterval(productTimerInterval);
 
             // Reset steps
             document.getElementById('funnelStep1').classList.remove('hidden');
@@ -1597,7 +1640,24 @@ fbq('track', 'PageView');
                 document.getElementById('funnelSuccessStep').classList.remove('hidden');
                 document.getElementById('funnelModalTitle').innerText = "Qualification Approved!";
                 document.getElementById('funnelModalSubtitle').innerText = "Your discount has been successfully reserved.";
+
+                // Start the 5-minute quiz success timer
+                startQuizSuccessTimer();
             }, 3000);
+        }
+
+        function startQuizSuccessTimer() {
+            const quizTimerElem = document.getElementById('quizSuccessTimer');
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+
+            quizTimerInterval = setInterval(() => {
+                if (remainingSeconds > 0) {
+                    remainingSeconds--;
+                }
+                const m = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+                const s = String(remainingSeconds % 60).padStart(2, '0');
+                if (quizTimerElem) quizTimerElem.innerText = `${m}:${s}`;
+            }, 1000);
         }
 
         function closeFunnelAndReveal() {
@@ -1606,6 +1666,24 @@ fbq('track', 'PageView');
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
             }
+
+            // Stop quiz timer and start product page timer seamlessly with remainingSeconds
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+            startProductPageTimer();
+        }
+
+        function startProductPageTimer() {
+            const prodTimerElem = document.getElementById('productPageTimer');
+            if (productTimerInterval) clearInterval(productTimerInterval);
+
+            productTimerInterval = setInterval(() => {
+                if (remainingSeconds > 0) {
+                    remainingSeconds--;
+                }
+                const m = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+                const s = String(remainingSeconds % 60).padStart(2, '0');
+                if (prodTimerElem) prodTimerElem.innerText = `${m}:${s}`;
+            }, 1000);
         }
 
         function renderTermsView() {
