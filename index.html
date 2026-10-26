@@ -426,6 +426,104 @@ fbq('track', 'PageView');
         <div id="toastMessage" class="text-sm font-bold">Redirecting...</div>
     </div>
 
+    <!-- FUNNEL QUALIFICATION MODAL POPUP -->
+    <div id="funnelModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-red-200 relative animate-in fade-in zoom-in duration-300">
+            
+            <!-- Step Header -->
+            <div class="text-center space-y-2 mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-red-100 text-red-600 text-xs font-black uppercase tracking-wider rounded-full">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Exclusive Qualification Checker
+                </span>
+                <h3 id="funnelModalTitle" class="text-2xl font-black text-gray-900 tracking-tight">Checking Discount Eligibility...</h3>
+                <p id="funnelModalSubtitle" class="text-xs text-gray-500 font-medium">Please answer 3 quick questions to unlock your exclusive warehouse price.</p>
+            </div>
+
+            <!-- Question 1: Gender -->
+            <div id="funnelStep1" class="funnel-step space-y-4">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 text-center space-y-1">
+                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Question 1 of 3</span>
+                    <p class="text-base font-bold text-gray-900">Are you shopping as a Man or a Woman?</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="answerFunnel(1, 'Man')" class="p-4 border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="user" class="w-4 h-4 text-red-600"></i> Man
+                    </button>
+                    <button onclick="answerFunnel(1, 'Woman')" class="p-4 border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="user" class="w-4 h-4 text-red-600"></i> Woman
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2: Location -->
+            <div id="funnelStep2" class="funnel-step space-y-4 hidden">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 text-center space-y-1">
+                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Question 2 of 3</span>
+                    <p class="text-base font-bold text-gray-900">Do you currently reside in South Africa? 🇿🇦</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="answerFunnel(2, 'Yes')" class="p-4 border-2 border-gray-200 hover:border-emerald-600 hover:bg-emerald-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Yes, in South Africa
+                    </button>
+                    <button onclick="answerFunnel(2, 'No')" class="p-4 border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="x-circle" class="w-4 h-4 text-red-600"></i> No
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3: Brand Interest -->
+            <div id="funnelStep3" class="funnel-step space-y-4 hidden">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 text-center space-y-1">
+                    <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Question 3 of 3</span>
+                    <p id="funnelBrandQuestionText" class="text-base font-bold text-gray-900">Are you interested in or already a customer of this brand?</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="answerFunnel(3, 'Yes')" class="p-4 border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-red-600"></i> Yes, interested / customer
+                    </button>
+                    <button onclick="answerFunnel(3, 'No')" class="p-4 border-2 border-gray-200 hover:border-red-600 hover:bg-red-50 rounded-2xl font-black text-gray-800 text-sm transition cursor-pointer flex items-center justify-center gap-2">
+                        <i data-lucide="thumbs-up" class="w-4 h-4 text-red-600"></i> First time buyer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Simulation Step -->
+            <div id="funnelLoadingStep" class="funnel-step space-y-6 text-center py-6 hidden">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto text-red-600 animate-pulse">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin"></i>
+                </div>
+                <div class="space-y-2">
+                    <h4 id="loadingStatusText" class="text-lg font-black text-gray-900">Verifying customer profile...</h4>
+                    <p class="text-xs text-gray-500">Checking South African warehouse allocation & regional eligibility...</p>
+                </div>
+                <!-- Loading Progress Bar -->
+                <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden p-0.5 border border-gray-300">
+                    <div id="loadingBarFill" class="bg-gradient-to-r from-red-600 to-amber-500 h-full rounded-full transition-all duration-700 w-[15%]"></div>
+                </div>
+            </div>
+
+            <!-- Success / Final Step -->
+            <div id="funnelSuccessStep" class="funnel-step space-y-6 text-center py-4 hidden">
+                <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600 shadow-lg shadow-emerald-100">
+                    <i data-lucide="check-circle" class="w-10 h-10"></i>
+                </div>
+                
+                <div class="space-y-2">
+                    <span class="px-3 py-1 bg-red-100 text-red-600 text-xs font-black uppercase tracking-wider rounded-full">CONGRATULATIONS! 🎉</span>
+                    <h4 class="text-xl font-black text-gray-900">You Qualify for the Mega Discount!</h4>
+                    <p class="text-sm text-gray-600 font-medium">
+                        You have unlocked the exclusive clearance rate for this item with <strong id="successDiscountText" class="text-red-600 font-black">98% OFF</strong>! Original retail price was <strong id="successOriginalPriceText" class="text-gray-900 font-black">R1,999.00 ZAR</strong>.
+                    </p>
+                </div>
+
+                <button onclick="closeFunnelAndReveal()" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl shadow-red-200 transition-all transform hover:-translate-y-0.5 text-base uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5 fill-current"></i> Claim Your Deal Now
+                </button>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- SCRIPT SECTION -->
     <script>
@@ -1307,9 +1405,9 @@ fbq('track', 'PageView');
         ];
 
         let currentSelectedCategory = "All";
-let activeProduct = null;
-let selectedQuantity = 1;
-let lastTrackedProductRoute = null;
+        let activeProduct = null;
+        let selectedQuantity = 1;
+        let lastTrackedProductRoute = null;
 
         function startCountdown() {
             let seconds = 2 * 3600 + 14 * 60 + 59;
@@ -1387,8 +1485,8 @@ let lastTrackedProductRoute = null;
         }
 
         function renderCatalogView() {
-    lastTrackedProductRoute = null;
-    document.getElementById('catalogView').classList.remove('hidden');
+            lastTrackedProductRoute = null;
+            document.getElementById('catalogView').classList.remove('hidden');
             document.getElementById('productDetailView').classList.add('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
@@ -1398,30 +1496,116 @@ let lastTrackedProductRoute = null;
         }
 
         function renderProductDetailView(product) {
-    activeProduct = product;
-    renderProductDetail(product);
+            activeProduct = product;
+            renderProductDetail(product);
 
-    if (lastTrackedProductRoute !== product.slug) {
-        lastTrackedProductRoute = product.slug;
+            if (lastTrackedProductRoute !== product.slug) {
+                lastTrackedProductRoute = product.slug;
 
-        if (typeof fbq === 'function') {
-            fbq('track', 'ViewContent', {
-                content_ids: [product.id],
-                content_name: product.name,
-                content_type: 'product',
-                value: product.price,
-                currency: 'ZAR'
-            });
-        }
-    }
+                if (typeof fbq === 'function') {
+                    fbq('track', 'ViewContent', {
+                        content_ids: [product.id],
+                        content_name: product.name,
+                        content_type: 'product',
+                        value: product.price,
+                        currency: 'ZAR'
+                    });
+                }
+            }
 
-    document.getElementById('catalogView').classList.add('hidden');
+            document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
             document.getElementById('searchBarContainer').classList.add('hidden');
             document.getElementById('mobileSearchContainer').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger Qualification Funnel Modal 1 second after landing on product page
+            setTimeout(() => {
+                openFunnelModal(product);
+            }, 1000);
+        }
+
+        // FUNNEL MODAL LOGIC
+        function openFunnelModal(product) {
+            const modal = document.getElementById('funnelModal');
+            if (!modal) return;
+
+            // Reset steps
+            document.getElementById('funnelStep1').classList.remove('hidden');
+            document.getElementById('funnelStep2').classList.add('hidden');
+            document.getElementById('funnelStep3').classList.add('hidden');
+            document.getElementById('funnelLoadingStep').classList.add('hidden');
+            document.getElementById('funnelSuccessStep').classList.add('hidden');
+
+            document.getElementById('funnelModalTitle').innerText = "Check Your Discount Eligibility";
+            document.getElementById('funnelModalSubtitle').innerText = `Unlocking exclusive clearance rate for: ${product.name}`;
+
+            // Update question 3 text based on product name
+            document.getElementById('funnelBrandQuestionText').innerText = `Are you interested in or already a customer of ${product.name.split(' ')[0]} / similar brands?`;
+
+            // Calculate discount percentage
+            const discPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+            document.getElementById('successDiscountText').innerText = `${discPercent}% OFF`;
+            document.getElementById('successOriginalPriceText').innerText = product.originalPriceFormatted;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function answerFunnel(stepNumber, answer) {
+            if (stepNumber === 1) {
+                document.getElementById('funnelStep1').classList.add('hidden');
+                document.getElementById('funnelStep2').classList.remove('hidden');
+            } else if (stepNumber === 2) {
+                document.getElementById('funnelStep2').classList.add('hidden');
+                document.getElementById('funnelStep3').classList.remove('hidden');
+            } else if (stepNumber === 3) {
+                document.getElementById('funnelStep3').classList.add('hidden');
+                runFunnelLoadingSequence();
+            }
+        }
+
+        function runFunnelLoadingSequence() {
+            const loadingStep = document.getElementById('funnelLoadingStep');
+            loadingStep.classList.remove('hidden');
+
+            document.getElementById('funnelModalTitle').innerText = "Verifying Qualifications...";
+            document.getElementById('funnelModalSubtitle').innerText = "Please wait while our system checks live inventory limits.";
+
+            const statusText = document.getElementById('loadingStatusText');
+            const barFill = document.getElementById('loadingBarFill');
+
+            setTimeout(() => {
+                statusText.innerText = "Checking South African warehouse stock...";
+                barFill.style.width = "45%";
+            }, 800);
+
+            setTimeout(() => {
+                statusText.innerText = "Validating regional discount allocation...";
+                barFill.style.width = "80%";
+            }, 1600);
+
+            setTimeout(() => {
+                statusText.innerText = "Discount successfully verified!";
+                barFill.style.width = "100%";
+            }, 2400);
+
+            setTimeout(() => {
+                loadingStep.classList.add('hidden');
+                document.getElementById('funnelSuccessStep').classList.remove('hidden');
+                document.getElementById('funnelModalTitle').innerText = "Qualification Approved!";
+                document.getElementById('funnelModalSubtitle').innerText = "Your discount has been successfully reserved.";
+            }, 3000);
+        }
+
+        function closeFunnelAndReveal() {
+            const modal = document.getElementById('funnelModal');
+            if (modal) {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
         }
 
         function renderTermsView() {
@@ -1648,16 +1832,16 @@ let lastTrackedProductRoute = null;
         function handleBuyNow() {
             if (!activeProduct) return;
 
-if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout', {
-        content_ids: [activeProduct.id],
-        content_name: activeProduct.name,
-        content_type: 'product',
-        value: activeProduct.price * selectedQuantity,
-        currency: 'ZAR',
-        num_items: selectedQuantity
-    });
-}
+            if (typeof fbq === 'function') {
+                fbq('track', 'InitiateCheckout', {
+                    content_ids: [activeProduct.id],
+                    content_name: activeProduct.name,
+                    content_type: 'product',
+                    value: activeProduct.price * selectedQuantity,
+                    currency: 'ZAR',
+                    num_items: selectedQuantity
+                });
+            }
 
             const cartBadge = document.getElementById('cartBadge');
             if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText || '0') + selectedQuantity;
