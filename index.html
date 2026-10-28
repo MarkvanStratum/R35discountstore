@@ -54,6 +54,18 @@ fbq('track', 'PageView');
         <span id="topBarTimer" class="font-mono text-yellow-300 bg-red-800 px-2 py-0.5 rounded text-sm font-black">02:14:59</span>
     </div>
 
+    <!-- POWERED BY AMAZON PROMINENT BANNER -->
+    <div class="bg-slate-900 text-white py-2 px-4 text-center border-b border-amber-500/30 flex items-center justify-center gap-3 shadow-md">
+        <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold">Global Logistics & Fulfillment</span>
+        <div class="flex items-center gap-1.5 font-black text-sm tracking-tight text-white">
+            <span>Powered by</span>
+            <!-- Official Amazon Smile / Logo Text Style with Orange Arrow -->
+            <span class="inline-flex items-center text-amber-400 font-extrabold text-base tracking-normal">
+                amazon<span class="text-white text-xs -mt-2 ml-0.5">.com</span>
+            </span>
+        </div>
+    </div>
+
     <!-- ========================================== -->
     <!-- NAVIGATION BAR                             -->
     <!-- ========================================== -->
@@ -230,6 +242,15 @@ fbq('track', 'PageView');
                             </p>
                         </div>
 
+                        <!-- POWERED BY AMAZON BADGE (Inserted between price box and description) -->
+                        <div class="flex items-center justify-center gap-2 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-sm border border-amber-500/30">
+                            <span class="text-[11px] uppercase tracking-wider text-gray-300 font-medium">Global Fulfillment</span>
+                            <span class="font-bold text-xs">Powered by</span>
+                            <span class="inline-flex items-center text-amber-400 font-black text-sm tracking-normal">
+                                amazon<span class="text-white text-[10px] -mt-1.5 ml-0.5">.com</span>
+                            </span>
+                        </div>
+
                         <div class="space-y-2 pt-2 border-t border-gray-100">
                             <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider flex items-center gap-1">
                                 <i data-lucide="shield-alert" class="w-4 h-4 text-red-600"></i> Why This Deal Exists:
@@ -369,7 +390,7 @@ fbq('track', 'PageView');
 
                 <div class="space-y-2">
                     <h3 class="text-base font-black text-gray-900">4. How Secure Is Information About Me?</h3>
-                    <p>We design our systems with your security and privacy in mind. We work to protect the security of your personal information during transmission by using Secure Sockets Layer (SSL) software, which encrypts information you input. Our servers maintain physical, electronic, and procedural safeguards in connection with the collection, storage, and disclosure of personal customer information.</p>
+                    <p>We design our systems with your security and privacy in mind. We work to protect the security of your personal information during transmission by using Secure Sockets Layer (SSL) software, which encrypts information you input.Our servers maintain physical, electronic, and procedural safeguards in connection with the collection, storage, and disclosure of personal customer information.</p>
                 </div>
 
                 <div class="space-y-2">
@@ -1307,9 +1328,9 @@ fbq('track', 'PageView');
         ];
 
         let currentSelectedCategory = "All";
-let activeProduct = null;
-let selectedQuantity = 1;
-let lastTrackedProductRoute = null;
+        let activeProduct = null;
+        let selectedQuantity = 1;
+        let lastTrackedProductRoute = null;
 
         function startCountdown() {
             let seconds = 2 * 3600 + 14 * 60 + 59;
@@ -1387,8 +1408,8 @@ let lastTrackedProductRoute = null;
         }
 
         function renderCatalogView() {
-    lastTrackedProductRoute = null;
-    document.getElementById('catalogView').classList.remove('hidden');
+            lastTrackedProductRoute = null;
+            document.getElementById('catalogView').classList.remove('hidden');
             document.getElementById('productDetailView').classList.add('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
@@ -1398,24 +1419,24 @@ let lastTrackedProductRoute = null;
         }
 
         function renderProductDetailView(product) {
-    activeProduct = product;
-    renderProductDetail(product);
+            activeProduct = product;
+            renderProductDetail(product);
 
-    if (lastTrackedProductRoute !== product.slug) {
-        lastTrackedProductRoute = product.slug;
+            if (lastTrackedProductRoute !== product.slug) {
+                lastTrackedProductRoute = product.slug;
 
-        if (typeof fbq === 'function') {
-            fbq('track', 'ViewContent', {
-                content_ids: [product.id],
-                content_name: product.name,
-                content_type: 'product',
-                value: product.price,
-                currency: 'ZAR'
-            });
-        }
-    }
+                if (typeof fbq === 'function') {
+                    fbq('track', 'ViewContent', {
+                        content_ids: [product.id],
+                        content_name: product.name,
+                        content_type: 'product',
+                        value: product.price,
+                        currency: 'ZAR'
+                    });
+                }
+            }
 
-    document.getElementById('catalogView').classList.add('hidden');
+            document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             document.getElementById('termsView').classList.add('hidden');
             document.getElementById('privacyView').classList.add('hidden');
@@ -1637,7 +1658,6 @@ let lastTrackedProductRoute = null;
             }
         }
 
-        // Helper to get Facebook click/browser ID cookie
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -1648,24 +1668,21 @@ let lastTrackedProductRoute = null;
         function handleBuyNow() {
             if (!activeProduct) return;
 
-if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout', {
-        content_ids: [activeProduct.id],
-        content_name: activeProduct.name,
-        content_type: 'product',
-        value: activeProduct.price * selectedQuantity,
-        currency: 'ZAR',
-        num_items: selectedQuantity
-    });
-}
+            if (typeof fbq === 'function') {
+                fbq('track', 'InitiateCheckout', {
+                    content_ids: [activeProduct.id],
+                    content_name: activeProduct.name,
+                    content_type: 'product',
+                    value: activeProduct.price * selectedQuantity,
+                    currency: 'ZAR',
+                    num_items: selectedQuantity
+                });
+            }
 
             const cartBadge = document.getElementById('cartBadge');
             if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText || '0') + selectedQuantity;
 
-            // Grab Facebook pixel ID from URL query or browser cookies
-            const urlParams = new URLSearchParams(window.location.search);
-            let fbPixelId = '976999728236306';
-
+            const fbPixelId = '976999728236306';
             let finalCheckoutUrl = "";
             const encodedTitle = encodeURIComponent(activeProduct.name);
             const encodedImage = encodeURIComponent(activeProduct.image);
@@ -1680,7 +1697,6 @@ if (typeof fbq === 'function') {
 
             showToast(`Securing discount price for ${activeProduct.name}... Redirecting to checkout!`);
 
-            // Redirect user to tracking link with product title, image, and pixel
             setTimeout(() => {
                 window.location.href = finalCheckoutUrl;
             }, 1200);
