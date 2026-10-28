@@ -50,7 +50,7 @@ fbq('track', 'PageView');
     <!-- URGENCY TOP BAR -->
     <div class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center shadow-inner flex items-center justify-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-yellow-300 animate-ping"></span>
-        <span>SOUTH AFRICA EXCLUSIVE: INSANE ONE-TIME BLOWOUT SALE! OFFERS EXPIRE IN:</span>
+        <span>SOUTH AFRICA EXCLUSIVE: WAREHOUSE OVERSTOCK BLOWOUT SALE! OFFERS EXPIRE IN:</span>
         <span id="topBarTimer" class="font-mono text-yellow-300 bg-red-800 px-2 py-0.5 rounded text-sm font-black">02:14:59</span>
     </div>
 
@@ -87,7 +87,7 @@ fbq('track', 'PageView');
                 <!-- Search Bar -->
                 <div id="searchBarContainer" class="flex-1 max-w-md hidden md:block">
                     <div class="relative">
-                        <input type="text" id="searchInput" oninput="handleFilterChange()" placeholder="Search super deals, smartphones, tools..." 
+                        <input type="text" id="searchInput" oninput="handleFilterChange()" placeholder="Search overstock items, older models, tools..." 
                             class="w-full pl-10 pr-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-full focus:bg-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all">
                         <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                             <i data-lucide="search" class="w-4 h-4"></i>
@@ -98,9 +98,9 @@ fbq('track', 'PageView');
                 <!-- Header Actions -->
                 <div class="flex items-center gap-3">
                     <button onclick="navigateTo('catalog')" class="hidden sm:flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-red-600 px-3 py-2 rounded-lg hover:bg-red-50 transition cursor-pointer">
-                        <i data-lucide="flame" class="w-4 h-4 text-red-500"></i> Hot Deals
+                        <i data-lucide="flame" class="w-4 h-4 text-red-500"></i> Overstock Deals
                     </button>
-                    <button onclick="showToast('Click any product to claim the discount immediately!')" class="relative p-2 text-gray-700 hover:text-red-600 rounded-full hover:bg-gray-100 transition cursor-pointer">
+                    <button onclick="showToast('Click any product to claim the overstock liquidation discount immediately!')" class="relative p-2 text-gray-700 hover:text-red-600 rounded-full hover:bg-gray-100 transition cursor-pointer">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span id="cartBadge" class="absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
                     </button>
@@ -110,7 +110,7 @@ fbq('track', 'PageView');
             <!-- Mobile Search Bar -->
             <div id="mobileSearchContainer" class="pb-3 md:hidden">
                 <div class="relative">
-                    <input type="text" id="mobileSearchInput" oninput="syncMobileSearch(this.value)" placeholder="Search deals..." 
+                    <input type="text" id="mobileSearchInput" oninput="syncMobileSearch(this.value)" placeholder="Search overstock deals..." 
                         class="w-full pl-9 pr-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-full focus:bg-white focus:border-red-500 focus:outline-none">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                         <i data-lucide="search" class="w-4 h-4"></i>
@@ -131,13 +131,13 @@ fbq('track', 'PageView');
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(239,68,68,0.25),transparent)] pointer-events-none"></div>
                 <div class="relative px-6 py-10 sm:px-12 sm:py-14 max-w-3xl space-y-3">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 text-xs font-black tracking-wider text-yellow-300 uppercase bg-red-900/80 rounded-full border border-yellow-500/40 shadow-sm">
-                        <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> One-Time Warehouse Clearance 🇿🇦
+                        <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i> Warehouse Overstock Liquidation 🇿🇦
                     </div>
                     <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-none uppercase drop-shadow">
-                        Up to <span class="text-yellow-400 underline decoration-red-500">95% OFF</span> Mega Discounts!
+                        Clearing <span class="text-yellow-400 underline decoration-red-500">Overstock Items</span> at 95% OFF!
                     </h1>
                     <p class="text-sm sm:text-base text-gray-200 font-medium leading-relaxed">
-                        Exclusive deal allocation for South Africa customers. All items priced at only <strong class="text-yellow-300 font-black">R35.00 ZAR</strong> or <strong class="text-yellow-300 font-black">R163.00 ZAR</strong>! Once sold out, these prices will never return!
+                        We have too much stock in our warehouse and can't keep these older models! To free up space immediately, we are selling them cheap at <strong class="text-yellow-300 font-black">R35.00 ZAR</strong> and <strong class="text-yellow-300 font-black">R163.00 ZAR</strong>. Grab these overstock deals before warehouse storage runs out completely!
                     </p>
                 </div>
             </div>
@@ -153,7 +153,7 @@ fbq('track', 'PageView');
                         <i data-lucide="arrow-up-down" class="w-3.5 h-3.5"></i> Sort:
                     </label>
                     <select id="sortSelect" onchange="handleFilterChange()" class="text-sm border-gray-200 bg-white rounded-lg px-3 py-1.5 font-medium focus:ring-2 focus:ring-red-500 focus:outline-none border shadow-sm">
-                        <option value="featured">🔥 Highest Discount</option>
+                        <option value="featured">🔥 Highest Overstock Discount</option>
                         <option value="price-asc">Price: Low to High</option>
                         <option value="price-desc">Price: High to Low</option>
                         <option value="rating">Highest Rated</option>
@@ -171,7 +171,7 @@ fbq('track', 'PageView');
                 <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto text-red-500 mb-3">
                     <i data-lucide="package-search" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-base font-bold text-gray-900">No clearance deals matching your search</h3>
+                <h3 class="text-base font-bold text-gray-900">No overstock clearance deals matching your search</h3>
                 <p class="text-sm text-gray-500 mt-1">Try resetting your filter or search keywords.</p>
                 <button onclick="resetFilters()" class="mt-4 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-red-600 hover:bg-red-700 rounded-lg transition shadow cursor-pointer">Reset Filters</button>
             </div>
@@ -184,7 +184,7 @@ fbq('track', 'PageView');
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gray-100 p-3 rounded-2xl border border-gray-200">
                 <nav class="flex items-center space-x-2 text-sm text-gray-500">
                     <button onclick="navigateTo('catalog')" class="hover:text-red-600 font-bold transition flex items-center gap-1 cursor-pointer">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Superstore
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Warehouse Store
                     </button>
                     <span>/</span>
                     <span id="breadcrumbCategory" class="capitalize">Category</span>
@@ -207,7 +207,7 @@ fbq('track', 'PageView');
                             Badge
                         </span>
                         <div class="absolute bottom-4 left-4 right-4 bg-amber-500/95 backdrop-blur-md text-slate-900 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-between shadow-lg">
-                            <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-4 h-4 fill-current"></i> Flash Promo Live</span>
+                            <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-4 h-4 fill-current"></i> Warehouse Overstock Clearance</span>
                             <span id="stockIndicator" class="bg-red-600 text-white px-2 py-0.5 rounded text-[11px]">Only 3 left!</span>
                         </div>
                     </div>
@@ -230,7 +230,7 @@ fbq('track', 'PageView');
 
                         <div class="bg-red-50 border border-red-200 rounded-2xl p-4 space-y-1">
                             <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold uppercase tracking-wider text-red-600">Special SA Clearance Price:</span>
+                                <span class="text-xs font-bold uppercase tracking-wider text-red-600">Overstock Clearance Price:</span>
                                 <span id="detailSavingsTag" class="text-xs font-black text-white bg-red-600 px-2 py-0.5 rounded-full"></span>
                             </div>
                             <div class="flex items-baseline gap-3">
@@ -253,7 +253,7 @@ fbq('track', 'PageView');
 
                         <div class="space-y-2 pt-2 border-t border-gray-100">
                             <h4 class="text-xs font-black uppercase text-gray-900 tracking-wider flex items-center gap-1">
-                                <i data-lucide="shield-alert" class="w-4 h-4 text-red-600"></i> Why This Deal Exists:
+                                <i data-lucide="shield-alert" class="w-4 h-4 text-red-600"></i> Why Does This Deal Exist?
                             </h4>
                             <p id="detailDescription" class="text-gray-700 text-sm leading-relaxed bg-amber-50/60 border border-amber-200/60 p-3.5 rounded-xl font-medium"></p>
                         </div>
@@ -281,7 +281,7 @@ fbq('track', 'PageView');
 
                         <button onclick="handleBuyNow()" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl shadow-red-200 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-lg tracking-wide uppercase cursor-pointer">
                             <i data-lucide="shopping-cart" class="w-6 h-6 fill-current"></i>
-                            Claim Deal Now
+                            Claim Overstock Deal Now
                         </button>
 
                         <p class="text-center text-xs text-gray-500 flex items-center justify-center gap-1.5 pt-1 font-semibold">
@@ -327,7 +327,7 @@ fbq('track', 'PageView');
 
                 <div class="space-y-2">
                     <h3 class="text-base font-black text-gray-900">4. Pricing, Promotional Availability & Errors</h3>
-                    <p>Except where noted otherwise, the promotional price displayed for products on R35 Discount Store represents the full retail price listed on the item, estimated foreign retail value, or a suggested retail price. Due to our high-volume warehouse clearance sales, items in your shopping cart may occasionally misprice or run out of stock before checkout is completed. We reserve the right to cancel orders or adjust pricing in the event of system errors.</p>
+                    <p>Except where noted otherwise, the promotional price displayed for products on R35 Discount Store represents overstock clearance pricing for older model inventory that we cannot keep in our warehouse. Due to our high-volume warehouse clearance sales, items in your shopping cart may occasionally misprice or run out of stock before checkout is completed. We reserve the right to cancel orders or adjust pricing in the event of system errors.</p>
                 </div>
 
                 <div class="space-y-2">
@@ -337,7 +337,7 @@ fbq('track', 'PageView');
 
                 <div class="space-y-2">
                     <h3 class="text-base font-black text-gray-900">6. Returns, Refunds and Title</h3>
-                    <p>R35 Discount Store does not take title to returned items until the item arrives at our fulfillment center. Clearance items sold under promotional R35 / R163 events are subject to final sale rules unless defective upon arrival. For support inquiries, contact our customer hotline at 083 923 0670.</p>
+                    <p>R35 Discount Store does not take title to returned items until the item arrives at our fulfillment center. Clearance items sold under promotional R35 / R163 overstock events are subject to final sale rules unless defective upon arrival. For support inquiries, contact our customer hotline at 083 923 0670.</p>
                 </div>
 
                 <div class="space-y-2">
@@ -390,7 +390,7 @@ fbq('track', 'PageView');
 
                 <div class="space-y-2">
                     <h3 class="text-base font-black text-gray-900">4. How Secure Is Information About Me?</h3>
-                    <p>We design our systems with your security and privacy in mind. We work to protect the security of your personal information during transmission by using Secure Sockets Layer (SSL) software, which encrypts information you input.Our servers maintain physical, electronic, and procedural safeguards in connection with the collection, storage, and disclosure of personal customer information.</p>
+                    <p>We design our systems with your security and privacy in mind. We work to protect the security of your personal information during transmission by using Secure Sockets Layer (SSL) software, which encrypts information you input. Our servers maintain physical, electronic, and procedural safeguards in connection with the collection, storage, and disclosure of personal customer information.</p>
                 </div>
 
                 <div class="space-y-2">
@@ -412,7 +412,7 @@ fbq('track', 'PageView');
                         <i data-lucide="tag" class="w-5 h-5 text-red-500"></i> R35 Discount Store
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        South Africa's premier factory direct clearance shop. Unbeatable mega discounts on top-tier electronics, gadgets, and home goods.
+                        South Africa's premier factory direct warehouse overstock clearance shop. Selling older models cheap because we have too much stock in our warehouse.
                     </p>
                 </div>
 
@@ -436,7 +436,7 @@ fbq('track', 'PageView');
 
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-center sm:text-left">
                 <p>© 2026 R35 Discount Store. All rights reserved.</p>
-                <p>Proudly serving South Africa with lightning-fast deals 🇿🇦</p>
+                <p>Proudly clearing overstock items across South Africa 🇿🇦</p>
             </div>
         </div>
     </footer>
@@ -466,7 +466,7 @@ fbq('track', 'PageView');
                 stockLeft: 4,
                 image: "https://i.imgur.com/3xJHkie.png",
                 gallery: ["https://i.imgur.com/3xJHkie.png"],
-                description: "🔥 SUPER DISCOUNT ALERT! Claim your Carrito De Playa Yeti All-Terrain Beach Cart for just R35.00 ZAR down from its standard SA retail value of R1,999.00 ZAR! That's an extraordinary 98% instant savings! Engineered with massive puncture-proof tires to easily glide over deep beach sand, a heavy-duty 150kg load rating, and weather-proof fabric. Grab this limited warehouse clearance before stock runs out!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model beach cart where we have too much stock sitting in our warehouse, and we simply cannot keep them. Because we need to clear out the warehouse space immediately, you are lucky and can get this heavy-duty all-terrain beach cart for this cheap discounted price of just R35.00 ZAR instead of R1,999.00 ZAR! Engineered with massive puncture-proof tires and 150kg load rating.",
                 specs: ["Puncture-Proof Sand Wheels", "Heavy-Duty 150kg Capacity", "Weather-Proof Oxford Fabric", "Fold-Flat Compact Storage"],
                 colors: ["#0f172a", "#3b82f6"]
             },
@@ -485,7 +485,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://iili.io/Cmrg0E7.md.png",
                 gallery: ["https://iili.io/Cmrg0E7.md.png"],
-                description: "🌸 INSANE SPA CLEARANCE! Spoil yourself or a loved one with the world-renowned Rituals Luxury Body & Home Care Set for only R35.00 ZAR! Normally priced at R1,299.00 ZAR in South African boutiques, you save an incredible R1,264.00 today (97% OFF). Packed with premium natural botanical oils, full-sized spa products, and luxurious gift packaging. Don't wait—warehouse allocation is strictly limited!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model packaging run that resulted in too much stock taking up space in our warehouse that we cannot keep. To get rid of them fast, you are lucky and can grab this Rituals Luxury Body Care Set for a cheap price of only R35.00 ZAR (normally R1,299.00 ZAR). Packed with botanical oils and full-sized spa products.",
                 specs: ["100% Natural Botanical Oils", "Full-Size 4-Piece Luxe Set", "Dermatologically Tested", "Premium Gift Packaging"],
                 colors: ["#f43f5e", "#fb7185"]
             },
@@ -504,7 +504,7 @@ fbq('track', 'PageView');
                 stockLeft: 9,
                 image: "https://www.worten.pt/i/d6deb09d14a5d724add31bfd06d286163e08562b",
                 gallery: ["https://www.worten.pt/i/d6deb09d14a5d724add31bfd06d286163e08562b"],
-                description: "🚗 CRAZY SAFETY BLOWOUT! Protect yourself on South African roads with the CAA Deluxe Roadside Emergency Kit, available now for a steal at just R35.00 ZAR (retail price R999.00 ZAR). Enjoy massive 96% savings while keeping your vehicle prepared for any emergency with booster cables, hi-vis vest, tactical flashlight, and first aid essentials.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are heavily overstocked on these older model roadside safety kits and cannot keep them in the warehouse anymore. That's why we need to sell them cheap at just R35.00 ZAR instead of R999.00 ZAR—making you lucky enough to secure essential car safety gear at a fraction of the cost.",
                 specs: ["Heavy Duty Booster Cables", "Hi-Vis Safety Triangle & Vest", "LED Tactical Flashlight", "Heavy Duty Carrying Bag"],
                 colors: ["#dc2626", "#1e293b"]
             },
@@ -523,7 +523,7 @@ fbq('track', 'PageView');
                 stockLeft: 3,
                 image: "https://i.ibb.co/qX64MSg/ninja.jpg",
                 gallery: ["https://i.ibb.co/qX64MSg/ninja.jpg"],
-                description: "🍳 UNBELIEVABLE PREMIUM APPLIANCE SALE! Transform your meal prep with the flagship Ninja Foodi Dual Zone Air Fryer for an astonishing R163.00 ZAR instead of the standard SA retail price of R4,899.00 ZAR! Save a massive R4,736.00 today (96% OFF). Featuring dual independent cooking baskets, match cook, and smart sync features. High demand, act fast!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model release batch of the Ninja Foodi Air Fryer where we have too much stock piling up in our warehouse, and we simply can't keep them. Because we must clear out warehouse space, you are lucky to get it cheap for only R163.00 ZAR down from R4,899.00 ZAR!",
                 specs: ["Dual Independent Baskets", "Match Cook & Smart Sync", "6 Custom Cooking Functions", "Dishwasher Safe Parts"],
                 colors: ["#18181b"]
             },
@@ -542,7 +542,7 @@ fbq('track', 'PageView');
                 stockLeft: 2,
                 image: "https://www.dxomark.com/wp-content/uploads/medias/post-181483/Samsung-Galaxy-S25-Ultra_featured-image-packshot-review.jpg",
                 gallery: ["https://www.dxomark.com/wp-content/uploads/medias/post-181483/Samsung-Galaxy-S25-Ultra_featured-image-packshot-review.jpg"],
-                description: "⚡ HISTORIC FLAGSHIP PHONE CLEARANCE! Get the groundbreaking Samsung Galaxy S25 Ultra (5G) for a shocking price of just R163.00 ZAR! Store retail value stands at R29,999.00 ZAR, giving you a mind-blowing 99% price discount! Equipped with Snapdragon 8 Elite, 200MP pro camera, built-in S-Pen, and titanium frame. Stock is down to final units!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? With newer generations arriving, we are left with too much overstock of this model in our warehouse that we can't keep. To clear room immediately, you are lucky and can buy this flagship phone cheap at just R163.00 ZAR instead of R29,999.00 ZAR!",
                 specs: ["200MP Pro-Grade Camera", "Snapdragon 8 Elite Processor", "Built-In S-Pen Stylus", "Titanium Armor Frame"],
                 colors: ["#334155", "#e2e8f0", "#1e293b"]
             },
@@ -561,7 +561,7 @@ fbq('track', 'PageView');
                 stockLeft: 5,
                 image: "https://d2m1n2vfkjrac.cloudfront.net/wp-content/uploads/2023/11/20144028/2023-11-SB-DOTM-NS-in-story-768x768.jpg",
                 gallery: ["https://d2m1n2vfkjrac.cloudfront.net/wp-content/uploads/2023/11/20144028/2023-11-SB-DOTM-NS-in-story-768x768.jpg"],
-                description: "💳 MEGA VOUCHER BLOWOUT! Secure an authentic R10,000 Takealot.com Digital Gift Card for an unheard-of R163.00 ZAR! Pay R163.00 today and unlock R10,000.00 worth of shopping credit on South Africa's largest online store (save 98%!). Delivered directly to your email address instantly.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We purchased a bulk corporate batch of digital vouchers that have overstayed their promotional allocation, leaving us with excess stock we can't keep on our books. That is why we are selling them cheap at R163.00 ZAR to clear them out instantly.",
                 specs: ["Instant Digital Email Delivery", "Valid on Takealot.com", "Redeemable for Any Products", "100% Guaranteed Balance"],
                 colors: ["#2563eb"]
             },
@@ -580,7 +580,7 @@ fbq('track', 'PageView');
                 stockLeft: 4,
                 image: "https://conteudos.meo.pt/catalogo/isell/acessorios/coluna-jbl-charge-6/coluna-jbl-charge-6-preto-pega-meo.webp",
                 gallery: ["https://conteudos.meo.pt/catalogo/isell/acessorios/coluna-jbl-charge-6/coluna-jbl-charge-6-preto-pega-meo.webp"],
-                description: "🔊 MASSIVE AUDIO DISCOUNT! Elevate your music experience with the JBL Charge 6 Portable Waterproof Speaker for only R163.00 ZAR! Standard retail pricing in SA is R3,899.00 ZAR, meaning you pocket R3,736.00 in direct savings today. IP68 waterproof, 28-hour playtime, and built-in powerbank capabilities.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This speaker model has excess warehouse inventory from an older production run that we cannot keep. To free up warehouse capacity, you are lucky to get it cheap for only R163.00 ZAR instead of R3,899.00 ZAR.",
                 specs: ["28 Hours Battery Playtime", "Built-in Phone Powerbank", "IP68 Dust & Waterproof", "JBL PartyBoost Pairing"],
                 colors: ["#09090b", "#dc2626"]
             },
@@ -599,7 +599,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://cdn.shopify.com/s/files/1/0595/4034/0926/files/A1654011_TD01_V1_1-removebg-preview.png?v=1719825334&width=1600",
                 gallery: ["https://cdn.shopify.com/s/files/1/0595/4034/0926/files/A1654011_TD01_V1_1-removebg-preview.png?v=1719825334&width=1600"],
-                description: "⚡ ULTIMATE POWER CLEARANCE! Never let your battery die again with the Anker MagGo Magnetic Wireless Power Bank for just R35.00 ZAR (regularly R899.00 ZAR in tech shops). Save 96% on 15W high-speed MagSafe magnetic charging, 10,000mAh capacity, and built-in foldout kickstand.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older model power bank in our warehouse and cannot keep storing them. That's why we need to sell them cheap at just R35.00 ZAR (retail R899.00 ZAR), making you lucky to snap up a great discount.",
                 specs: ["15W MagSafe Wireless Charging", "10,000mAh Battery Capacity", "Built-In Foldable Kickstand", "USB-C Power Delivery Input/Output"],
                 colors: ["#18181b", "#38bdf8"]
             },
@@ -618,7 +618,7 @@ fbq('track', 'PageView');
                 stockLeft: 5,
                 image: "https://www.worten.pt/i/0a6c0f8b5b34a6985bdbb838484cba059e308684",
                 gallery: ["https://www.worten.pt/i/0a6c0f8b5b34a6985bdbb838484cba059e308684"],
-                description: "🦷 DENTAL HYGIENE BARGAIN! Get dentist-clean teeth at home with the Philips Sonicare Electric Toothbrush for only R163.00 ZAR! Standard market price in South Africa is R2,499.00 ZAR—giving you a unbelievable 93% discount today. Sonic action removes up to 7x more plaque than manual brushing.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older generation toothbrush line that is heavily overstocked in our warehouse, and we simply can't keep holding onto them. You are lucky to get it cheap at R163.00 ZAR instead of R2,499.00 ZAR to clear warehouse shelf space.",
                 specs: ["Advanced Sonic Technology", "Pressure Sensor Protection", "2 Intensity Settings", "Smarttimer & Quadpacer"],
                 colors: ["#ffffff", "#0284c7"]
             },
@@ -637,7 +637,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://m.media-amazon.com/images/I/51-k6oFSs2L._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/51-k6oFSs2L._AC_SX679_.jpg"],
-                description: "💨 COOLING CLEARANCE SPECIAL! Beat South Africa's heat with the Ultra-Quiet USB Desk Mini Fan for a giveaway price of just R35.00 ZAR! Usually sold for R499.00 ZAR, this compact powerhouse features 3 speed settings and whisper-quiet motor operation at 92% off retail price.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We accumulated too much overstock of these mini desk fans from past seasons, and our warehouse has no room left to keep them. That is why they are priced cheap at only R35.00 ZAR (normally R499.00 ZAR).",
                 specs: ["Whisper-Quiet Operation", "USB Powered & Rechargeable", "3 Adjustable Speeds", "Compact Portable Design"],
                 colors: ["#18181b", "#ffffff"]
             },
@@ -656,7 +656,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://varuste.net/tiedostot/1/kuva/tuote/600/12995035.jpg",
                 gallery: ["https://varuste.net/tiedostot/1/kuva/tuote/600/12995035.jpg"],
-                description: "⛺ OUTDOOR ESSENTIAL CLEARANCE! Light up your campsite or house during loadshedding with the Waterproof Camping LED Lantern & Powerbank for only R35.00 ZAR! Valued at R799.00 ZAR in outdoor stores, you save 95% today on 1000 lumens output, IPX6 waterproofing, and device charging capabilities.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older model camping lantern has too much stock taking up valuable pallet space in our warehouse. We cannot keep them, so you are lucky to buy them cheap for just R35.00 ZAR instead of R799.00 ZAR.",
                 specs: ["IPX6 Waterproof Rating", "Built-In Emergency Powerbank", "Ultra-Bright 1000 Lumens", "Foldable Hanging Hook"],
                 colors: ["#f59e0b", "#27272a"]
             },
@@ -675,7 +675,7 @@ fbq('track', 'PageView');
                 stockLeft: 3,
                 image: "https://www.nespresso.com/ecom/medias/sys_master/public/17022802984990/M-2036-ResponsiveStandard-Front.png?impolicy=medium&imwidth=800&imdensity=1",
                 gallery: ["https://www.nespresso.com/ecom/medias/sys_master/public/17022802984990/M-2036-ResponsiveStandard-Front.png?impolicy=medium&imwidth=800&imdensity=1"],
-                description: "☕ LUXURY COFFEE MACHINE DEAL! Enjoy cafe-quality espresso and micro-foam lattes with the high-end Nespresso Vertuo Creatista Stainless Steel Sage for a fraction of its cost at only R163.00 ZAR! Standard retail price in SA is R9,999.00 ZAR, giving you a monumental R9,836.00 discount today!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are overstocked on this older model Nespresso machine and cannot keep them in our warehouse storage facility. To clear space quickly, you are lucky to get it cheap at R163.00 ZAR instead of R9,999.00 ZAR.",
                 specs: ["Integrated Steam Wand", "Centrifusion Extraction Technology", "Premium Stainless Steel Body", "Multiple Cup Sizes"],
                 colors: ["#94a3b8", "#18181b"]
             },
@@ -694,7 +694,7 @@ fbq('track', 'PageView');
                 stockLeft: 3,
                 image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"],
-                description: "🎧 AUDIOPHILE CLEARANCE STEAL! Immerse yourself in total silence with industry-leading Sony WH-1000XM5 Noise-Canceling Headphones for just R163.00 ZAR! Retail stores charge R6,999.00 ZAR, making this a 97% instant savings opportunity. Unmatched noise cancellation, 30-hour battery life, and lush sound.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of these headphones from an older manufacturing batch, and our warehouse can no longer keep them. That's why we need to sell them cheap at just R163.00 ZAR (retail R6,999.00 ZAR).",
                 specs: ["Auto Noise Canceling", "30-Hour Battery Life", "Ultra-Soft Leather Cushions", "Crystal Clear Mic"],
                 colors: ["#18181b", "#f4f4f5"]
             },
@@ -713,7 +713,7 @@ fbq('track', 'PageView');
                 stockLeft: 2,
                 image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"],
-                description: "⌚ FLAGSHIP SMARTWATCH BLOWOUT! Strap on aerospace-grade titanium with the Apple Watch Ultra 2 (GPS + Cellular) for a record-breaking low price of R163.00 ZAR! Official retail pricing in South Africa is R17,999.00 ZAR—save an astonishing 99% on precision GPS, retina display, and extreme durability.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older smartwatch version has excess stock building up in our warehouse, and we simply cannot keep storing them. You are lucky to secure it cheap for only R163.00 ZAR instead of R17,999.00 ZAR.",
                 specs: ["49mm Titanium Case", "Dual-Frequency GPS", "Always-On Retina Display", "100m Water Resistant"],
                 colors: ["#3f3f46", "#f59e0b"]
             },
@@ -732,7 +732,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://dam.elcorteingles.es/producto/por-001007227246233-00.jpg?impolicy=frontWeb&width=1200&shape=square",
                 gallery: ["https://dam.elcorteingles.es/producto/por-001007227246233-00.jpg?impolicy=frontWeb&width=1200&shape=square"],
-                description: "☕ HOME & KITCHEN CLEARANCE! Upgrade your kitchen aesthetic with the Handcrafted Ceramic Coffee Mug Set (4-Pack) for only R35.00 ZAR! Usually sold for R599.00 ZAR, you save 94% on lead-free, microwave-safe speckled ceramic cups.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are overstocked on this older ceramic glaze design and cannot keep them in our warehouse. That's why we need to sell them cheap at just R35.00 ZAR instead of R599.00 ZAR.",
                 specs: ["100% Lead-Free Ceramic", "Microwave & Dishwasher Safe", "Ergonomic Handle", "Matte Speckled Finish"],
                 colors: ["#78716c", "#e7e5e4"]
             },
@@ -751,7 +751,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=800&q=80"],
-                description: "🔪 CHEF QUALITY KNIFE SALE! Slice and dice like a master chef with the Professional Stainless Steel Knife Set for only R35.00 ZAR! Valued at R899.00 ZAR in culinary stores, this 96% discount brings laser-tested sharpness and high-carbon steel into your home.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model knife set where we have too much stock in our warehouse that we can't keep. To clear shelf space, you are lucky and can get them cheap for only R35.00 ZAR instead of R899.00 ZAR.",
                 specs: ["High-Carbon Stainless Steel", "Ergonomic Non-Slip Handles", "Rust Resistant", "Precision Laser Tested"],
                 colors: ["#09090b", "#71717a"]
             },
@@ -770,7 +770,7 @@ fbq('track', 'PageView');
                 stockLeft: 4,
                 image: "https://m.media-amazon.com/images/I/61cztd7seIL._AC_SY300_SX300_QL70_ML2_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61cztd7seIL._AC_SY300_SX300_QL70_ML2_.jpg"],
-                description: "⌨️ PRO GAMING GEAR CLEARANCE! Dominate every match with the iconic Razer BlackWidow V4 X Mechanical Gaming Keyboard for a crazy R163.00 ZAR! Standard retail price in SA is R1,999.00 ZAR (91% OFF!). Features tactile mechanical switches, per-key RGB Chroma lighting, and aluminum construction.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older keyboard layout in our warehouse and cannot keep them. That's why we need to sell them cheap at just R163.00 ZAR (retail R1,999.00 ZAR).",
                 specs: ["Tactile Mechanical Switches", "Per-Key RGB Lighting", "Anti-Ghosting Technology", "Durable Aluminum Frame"],
                 colors: ["#18181b"]
             },
@@ -789,7 +789,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://m.media-amazon.com/images/I/61cCnFuxuOL._AC_SL1500_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61cCnFuxuOL._AC_SL1500_.jpg"],
-                description: "⚡ BELKIN TECH CLEARANCE! Juice up your smartphones effortlessly with the Belkin UltraCharge 25W Qi2 Magnetic Wireless Charger for just R35.00 ZAR! Store price is R699.00 ZAR, giving you 95% savings on premium fast wireless charging.",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older Belkin charger model has accumulated too much stock in our warehouse, and we simply can't keep them. You are lucky to buy it cheap at R35.00 ZAR instead of R699.00 ZAR.",
                 specs: ["Simultaneous 3-Device Charging", "Qi-Certified Fast Charge", "Over-Voltage Protection", "Foldable Travel Design"],
                 colors: ["#27272a", "#ffffff"]
             },
@@ -808,7 +808,7 @@ fbq('track', 'PageView');
                 stockLeft: 10,
                 image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80"],
-                description: "🍼 HYDRATION DEAL! Keep drinks ice-cold for 24 hours with the Insulated Stainless Steel Water Bottle (1L) for only R35.00 ZAR (retail R499.00 ZAR). Double-wall vacuum insulation at 92% off retail!",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older color series of water bottles in our warehouse and cannot keep them. That's why we are selling them cheap at just R35.00 ZAR (retail R499.00 ZAR).",
                 specs: ["Double-Wall Vacuum Insulation", "18/8 Pro-Grade Steel", "Leak-Proof Lid", "BPA Free"],
                 colors: ["#0284c7", "#10b981", "#ef4444"]
             },
@@ -827,7 +827,7 @@ fbq('track', 'PageView');
                 stockLeft: 5,
                 image: "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=800&q=80"],
-                description: "💡 OFFICE LIGHTING CLEARANCE! Protect your eyes while working or studying with the Dimmable Smart LED Desk Lamp for R35.00 ZAR! Normally R799.00 ZAR in retail stores (95% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model desk lamp where we have too much stock sitting in our warehouse, and we can't keep storing them. You are lucky to get it cheap at R35.00 ZAR instead of R799.00 ZAR.",
                 specs: ["Touch Control Brightness", "Built-In USB Charging Port", "Energy Saving LEDs", "Flexible Gooseneck"],
                 colors: ["#ffffff", "#18181b"]
             },
@@ -846,7 +846,7 @@ fbq('track', 'PageView');
                 stockLeft: 3,
                 image: "https://m.media-amazon.com/images/I/71BK9TytPEL._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/71BK9TytPEL._AC_SX679_.jpg"],
-                description: "🚗 EMERGENCY AUTOMOTIVE STEAL! Jump start flat batteries in seconds with the ultra-heavy duty NOCO Boost GB150 3000A Starter for only R163.00 ZAR! Standard price R2,499.00 ZAR (93% OFF!).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are heavily overstocked on this older model jump starter and cannot keep them in the warehouse. To clear out warehouse space, you are lucky and can buy it cheap at R163.00 ZAR instead of R2,499.00 ZAR.",
                 specs: ["2000A Peak Current", "Built-in LED Flashlight", "Reverse Polarity Protection", "USB Quick Charge"],
                 colors: ["#dc2626", "#18181b"]
             },
@@ -865,7 +865,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://m.media-amazon.com/images/I/71mhShpHuZL._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/71mhShpHuZL._AC_SX679_.jpg"],
-                description: "☕ PORTABLE ESPRESSO BARGAIN! Enjoy rich espresso outdoors with the OutIn Nano Portable Electric Espresso Machine for a incredible R35.00 ZAR (retail R899.00 ZAR).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this portable espresso machine in our warehouse and can't keep them. That's why we need to sell them cheap at just R35.00 ZAR (retail R899.00 ZAR).",
                 specs: ["Micro-filter Technology", "Rapid Brewing", "BPA Free & Durable", "Travel Friendly"],
                 colors: ["#3f3f46"]
             },
@@ -884,7 +884,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://m.media-amazon.com/images/I/71TNMy3sSyL._SX522_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/71TNMy3sSyL._SX522_.jpg"],
-                description: "⚖️ FITNESS TRACKING BLOWOUT! Track 13 body metrics via Bluetooth with the Smart Digital Body Fat Scale for only R35.00 ZAR! Usually R699.00 ZAR in health shops (95% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older model scale has excess stock taking up room in our warehouse that we cannot keep. You are lucky to secure it cheap for only R35.00 ZAR instead of R699.00 ZAR.",
                 specs: ["13 Body Metrics", "Bluetooth App Sync", "Tempered Glass Platform", "Auto-Calibration"],
                 colors: ["#ffffff", "#18181b"]
             },
@@ -903,7 +903,7 @@ fbq('track', 'PageView');
                 stockLeft: 9,
                 image: "https://rituals.scene7.com/is/image/rituals/1119947-25001-perfume-genie-black:4-by-3?fmt=webp-alpha&hei=1988&resMode=sharp2&wid=2650",
                 gallery: ["https://rituals.scene7.com/is/image/rituals/1119947-25001-perfume-genie-black:4-by-3?fmt=webp-alpha&hei=1988&resMode=sharp2&wid=2650"],
-                description: "🌿 HOME FRAGRANCE CLEARANCE! Turn your living room into a sanctuary with the luxury RITUALS The Perfume Genie for just R35.00 ZAR! Retail list price in SA is R599.00 ZAR (94% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are overstocked on this older scent diffuser model and cannot keep them in our warehouse storage. That's why we are selling them cheap at just R35.00 ZAR (retail R599.00 ZAR).",
                 specs: ["Quiet Ultrasonic Tech", "7 LED Mood Colors", "Auto Shut-Off Protection", "Large Capacity Tank"],
                 colors: ["#fef08a", "#bae6fd"]
             },
@@ -922,7 +922,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80"],
-                description: "💤 BETTER SLEEP SPECIAL! Eliminate neck pain with the Ergonomic Cervical Memory Foam Pillow for only R35.00 ZAR instead of R799.00 ZAR standard retail (95% savings!).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of these memory foam pillows in our warehouse and can't keep them. You are lucky to buy them cheap for only R35.00 ZAR instead of R799.00 ZAR.",
                 specs: ["High-Density Memory Foam", "Ergonomic Contour Design", "Breathable Washable Cover", "Hypoallergenic"],
                 colors: ["#ffffff"]
             },
@@ -941,7 +941,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://m.media-amazon.com/images/I/61Bde--IaCL._AC_SY300_SX300_QL70_ML2_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61Bde--IaCL._AC_SY300_SX300_QL70_ML2_.jpg"],
-                description: "🍷 BAR ACCESSORY CLEARANCE! Chill and enjoy wines perfectly with the CASE VinoCase Cooler for R35.00 ZAR! Regular SA retail value is R599.00 ZAR (94% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older wine cooler batch has accumulated too much stock in our warehouse that we cannot keep. To clear room, you are lucky and can get it cheap at R35.00 ZAR (retail R599.00 ZAR).",
                 specs: ["Opens in 6 Seconds", "Includes Foil Cutter", "Rechargeable Battery", "Sleek Stainless Steel"],
                 colors: ["#18181b"]
             },
@@ -960,7 +960,7 @@ fbq('track', 'PageView');
                 stockLeft: 4,
                 image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"],
-                description: "📹 HOME SECURITY CLEARANCE! Protect your family with the HD Night Vision Wireless Video Doorbell for only R163.00 ZAR! Normally priced at R2,299.00 ZAR in retail stores (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older video doorbell version in our warehouse and can't keep them. That's why we need to sell them cheap at just R163.00 ZAR instead of R2,299.00 ZAR.",
                 specs: ["1080p HD Wide-Angle", "Motion Detection Alerts", "Night Vision", "Two-Way Talk"],
                 colors: ["#18181b", "#ffffff"]
             },
@@ -979,7 +979,7 @@ fbq('track', 'PageView');
                 stockLeft: 3,
                 image: "https://m.media-amazon.com/images/I/815LCYqQChL._AC_SX425_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/815LCYqQChL._AC_SX425_.jpg"],
-                description: "🎬 HOME THEATER CLEARANCE! Project up to 120-inch cinema display with the TCL A1s 4K Full HD Projector for a crazy low R163.00 ZAR! Retail stores charge R3,499.00 ZAR (95% OFF!).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This projector model is an older version with excess stock filling up our warehouse shelves, and we cannot keep storing them. You are lucky to buy it cheap for only R163.00 ZAR (retail R3,499.00 ZAR).",
                 specs: ["Supports 1080p HD", "HDMI & USB Inputs", "Built-In Speaker", "Compact Pocket Size"],
                 colors: ["#ffffff", "#f1f5f9"]
             },
@@ -998,7 +998,7 @@ fbq('track', 'PageView');
                 stockLeft: 5,
                 image: "https://m.media-amazon.com/images/I/71rQEml4itL._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/71rQEml4itL._AC_SX679_.jpg"],
-                description: "🛠️ POWER TOOL CLEARANCE! Complete DIY projects with ease using the HYCHIKA 3.6V Cordless Electric Screwdriver Kit for only R163.00 ZAR! Retail list price is R1,599.00 ZAR (89% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of these cordless screwdrivers in our warehouse and can't keep them. To clear warehouse capacity, you are lucky to get it cheap at R163.00 ZAR instead of R1,599.00 ZAR.",
                 specs: ["Rechargeable Lithium Battery", "Includes 24 Precision Bits", "LED Work Light", "Magnetic Bit Holder"],
                 colors: ["#ef4444", "#18181b"]
             },
@@ -1017,7 +1017,7 @@ fbq('track', 'PageView');
                 stockLeft: 10,
                 image: "https://i.etsystatic.com/67310619/r/il/455ca2/8574186865/il_1588xN.8574186865_flp1.jpg",
                 gallery: ["https://i.etsystatic.com/67310619/r/il/455ca2/8574186865/il_1588xN.8574186865_flp1.jpg"],
-                description: "☕ COFFEE LOVER DEAL! Make creamy cappuccinos at home with the Handheld Electric Milk Frother for just R35.00 ZAR! Normally priced at R299.00 ZAR (88% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older milk frother model has too much stock taking up space in our warehouse that we cannot keep. That's why we need to sell them cheap at just R35.00 ZAR (retail R299.00 ZAR).",
                 specs: ["Stainless Steel Whisk", "Battery Powered", "Easy One-Touch Operation", "Multipurpose Mixing"],
                 colors: ["#18181b", "#silver"]
             },
@@ -1036,7 +1036,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=800&q=80"],
-                description: "⌚ SMARTWATCH CLEARANCE! Monitor heart rate, steps, and sleep with the Waterproof Smart Fitness Tracker for R163.00 ZAR! Standard retail price R1,299.00 ZAR (87% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are heavily overstocked on this older fitness tracker version and cannot keep them in the warehouse. You are lucky to secure it cheap for only R163.00 ZAR instead of R1,299.00 ZAR.",
                 specs: ["Heart Rate & Sleep Tracking", "IP67 Waterproof", "Color Touch Display", "7-Day Battery Life"],
                 colors: ["#18181b", "#0284c7"]
             },
@@ -1055,7 +1055,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://img.joomcdn.net/1b8fa74501cd15340226cae2d1f812e0eb3a0392_original.jpeg",
                 gallery: ["https://img.joomcdn.net/1b8fa74501cd15340226cae2d1f812e0eb3a0392_original.jpeg"],
-                description: "🔌 SMART HOME CLEARANCE! Automate your appliances and monitor electricity with the WiFi Smart Plug 2-Pack for only R35.00 ZAR! Retail value R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of these older smart plugs in our warehouse and can't keep them. That's why they are priced cheap at just R35.00 ZAR (retail R499.00 ZAR).",
                 specs: ["Voice Control Compatible", "Energy Usage Monitor", "Timer & Schedule Setup", "No Hub Required"],
                 colors: ["#ffffff"]
             },
@@ -1074,7 +1074,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://assets.foreo.com/files/static/2022-11/LUNA-4-men_PPdesk-benefits_1.webp?VersionId=UIam3OZcfDWUdQFPK6_rwOoxLC1AAo9J",
                 gallery: ["https://assets.foreo.com/files/static/2022-11/LUNA-4-men_PPdesk-benefits_1.webp?VersionId=UIam3OZcfDWUdQFPK6_rwOoxLC1AAo9J"],
-                description: "✨ GROOMING & SKINCARE STEAL! Deeply cleanse facial skin with the FOREO LUNA For Men Sonic Cleanser for just R35.00 ZAR! Retail stores charge R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older skincare device batch has too much stock piling up in our warehouse, and we cannot keep storing them. You are lucky to buy it cheap at R35.00 ZAR instead of R499.00 ZAR.",
                 specs: ["Food-Grade Silicone", "Adjustable Vibration Speeds", "IPX7 Waterproof", "Deep Pore Cleansing"],
                 colors: ["#f43f5e", "#ec4899"]
             },
@@ -1093,7 +1093,7 @@ fbq('track', 'PageView');
                 stockLeft: 9,
                 image: "https://m.media-amazon.com/images/I/61szXfJMjzL._AC_SY300_SX300_QL70_ML2_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61szXfJMjzL._AC_SY300_SX300_QL70_ML2_.jpg"],
-                description: "🚗 CAR PHONE HOLDER BLOWOUT! Secure and charge your iPhone with the Lamicall 15W MagSafe Suction Cup Car Mount for only R35.00 ZAR! Retail price R399.00 ZAR (91% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have excess warehouse inventory of this older car mount design that we can't keep. To clear room immediately, you are lucky to get it cheap for only R35.00 ZAR (retail R399.00 ZAR).",
                 specs: ["Ultra-Strong Neodymium Magnets", "360-Degree Rotation", "Secure Dashboard Clamp", "One-Hand Operation"],
                 colors: ["#18181b"]
             },
@@ -1112,7 +1112,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://img.fruugo.com/product/3/77/2558581773_max.jpg",
                 gallery: ["https://img.fruugo.com/product/3/77/2558581773_max.jpg"],
-                description: "📊 OFFICE TECH CLEARANCE! Deliver seamless slideshows with the genuine Logitech R400 Wireless Presenter for only R35.00 ZAR! Standard retail pricing is R399.00 ZAR (91% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model presenter clicker where we have too much stock sitting in our warehouse, and we simply can't keep them. You are lucky to buy it cheap at R35.00 ZAR instead of R399.00 ZAR.",
                 specs: ["Plug-and-Play USB Receiver", "Bright Red Laser Pointer", "Ergonomic Grip", "Long Wireless Range"],
                 colors: ["#18181b"]
             },
@@ -1131,7 +1131,7 @@ fbq('track', 'PageView');
                 stockLeft: 10,
                 image: "https://www.efectoled.com/2147435-thickbox_sklum/tira-neon-led-11-wm-rgb-220v-ac-60-ledm-semicircular-180o-ip67-a-medida-corte-cada-100-cm.jpg",
                 gallery: ["https://www.efectoled.com/2147435-thickbox_sklum/tira-neon-led-11-wm-rgb-220v-ac-60-ledm-semicircular-180o-ip67-a-medida-corte-cada-100-cm.jpg"],
-                description: "💡 AMBIENT LIGHTING CLEARANCE! Transform your room setup with the Dimmable Neon LED Strip Light for just R35.00 ZAR! Store retail price R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are overstocked on this older neon LED strip specification and cannot keep them in the warehouse. That's why we need to sell them cheap at just R35.00 ZAR (retail R499.00 ZAR).",
                 specs: ["App & Voice Control", "Music Sync Mode", "Cut-to-Fit Design", "Strong Adhesive Backing"],
                 colors: ["#000000"]
             },
@@ -1150,7 +1150,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://m.media-amazon.com/images/I/61-z3LVuu1L._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61-z3LVuu1L._AC_SX679_.jpg"],
-                description: "☀️ OUTDOOR LIGHTING SALE! Illuminate your garden and patio with Kingwen 40W 3000lm LED Wall Lights for only R35.00 ZAR! Store price R599.00 ZAR (94% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older solar light batch has accumulated too much stock in our warehouse that we can't keep. You are lucky to secure it cheap for only R35.00 ZAR instead of R599.00 ZAR.",
                 specs: ["PIR Motion Sensor", "Weatherproof IP65", "Solar Powered Battery", "Easy Wireless Mount"],
                 colors: ["#18181b"]
             },
@@ -1169,7 +1169,7 @@ fbq('track', 'PageView');
                 stockLeft: 9,
                 image: "https://www.worten.pt/i/177b87b1fa735ebb2790871b8e0ed6b1d5209308",
                 gallery: ["https://www.worten.pt/i/177b87b1fa735ebb2790871b8e0ed6b1d5209308"],
-                description: "✈️ TRAVEL ACCESSORY STEAL! Avoid airport overweight bag fees with the Beurer LS06 Digital Travel Bag Scale for a bargain R35.00 ZAR! Retail list R299.00 ZAR (88% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older travel scale model in our warehouse and cannot keep them. That's why we are selling them cheap at just R35.00 ZAR (retail R299.00 ZAR).",
                 specs: ["50kg / 110lb Capacity", "LCD Backlit Display", "Data Lock Function", "Compact Lightweight Design"],
                 colors: ["#silver", "#18181b"]
             },
@@ -1188,7 +1188,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://i.ebayimg.com/images/g/CcQAAOSwRMJnv2E4/s-l1600.webp",
                 gallery: ["https://i.ebayimg.com/images/g/CcQAAOSwRMJnv2E4/s-l1600.webp"],
-                description: "🧂 DINING & KITCHEN CLEARANCE! Season your dishes automatically with Gravity Electric Salt and Pepper Grinder Shakers for only R35.00 ZAR! Standard retail cost R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This is an older model grinder set where we have excess warehouse stock that we can't keep. To clear out space, you are lucky and can buy it cheap for only R35.00 ZAR instead of R499.00 ZAR.",
                 specs: ["Gravity Operation", "Adjustable Coarseness", "Built-In LED Light", "Stainless Steel Build"],
                 colors: ["#3f3f46"]
             },
@@ -1207,7 +1207,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://didactum-security.com/thumbnail/6a/db/c5/1751454239/WLD2_1920x1920.webp?ts=1751454256",
                 gallery: ["https://didactum-security.com/thumbnail/6a/db/c5/1751454239/WLD2_1920x1920.webp?ts=1751454256"],
-                description: "💧 PROPERTY SAFETY CLEARANCE! Prevent flooding and water damage with the WLD2 WiFi Smart Water Leak Detector for only R35.00 ZAR! Store retail R399.00 ZAR (91% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older leak detector model in our warehouse and cannot keep storing them. You are lucky to get it cheap at R35.00 ZAR (retail R399.00 ZAR).",
                 specs: ["Instant App Alerts", "90dB Loud Alarm", "Waterproof Design", "Long Battery Life"],
                 colors: ["#ffffff"]
             },
@@ -1226,7 +1226,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://img.fruugo.com/product/8/58/2623333588_max.jpg",
                 gallery: ["https://img.fruugo.com/product/8/58/2623333588_max.jpg"],
-                description: "😴 SLEEP AID BLOWOUT! Fall asleep in complete darkness with 3D Bluetooth Sleep Headphone Mask for just R35.00 ZAR! Retail stores price this at R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older sleep mask batch has too much stock taking up warehouse pallet space that we can't keep. That's why we need to sell them cheap at just R35.00 ZAR instead of R499.00 ZAR.",
                 specs: ["Built-in Flat Speakers", "100% Blackout Design", "Breathable Fabric", "USB Rechargeable"],
                 colors: ["#18181b", "#3b82f6"]
             },
@@ -1245,7 +1245,7 @@ fbq('track', 'PageView');
                 stockLeft: 9,
                 image: "https://img.fruugo.com/product/8/78/2610815788_max.jpg",
                 gallery: ["https://img.fruugo.com/product/8/78/2610815788_max.jpg"],
-                description: "🍱 LUNCH CONTAINER CLEARANCE! Pack hot meals on the go with the Z8 304 Stainless Steel Thermal Bento Lunch Box for only R35.00 ZAR! Retail cost R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are overstocked on this older lunch box design and cannot keep them in our warehouse. You are lucky to buy it cheap for only R35.00 ZAR instead of R499.00 ZAR.",
                 specs: ["Leak-Proof Compartments", "Food-Grade Stainless Steel", "Microwave Safe Tray", "Easy to Clean"],
                 colors: ["#38bdf8", "#f43f5e"]
             },
@@ -1264,7 +1264,7 @@ fbq('track', 'PageView');
                 stockLeft: 6,
                 image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80",
                 gallery: ["https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80"],
-                description: "🖱️ ERGONOMIC DESK CLEARANCE! Say goodbye to wrist pain with the Ergonomic Wireless Vertical Optical Mouse for only R35.00 ZAR! Valued at R499.00 ZAR in tech shops (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older ergonomic mouse in our warehouse and can't keep them. That's why we're selling them cheap at just R35.00 ZAR (retail R499.00 ZAR).",
                 specs: ["Natural Hand Position", "Adjustable DPI Levels", "Silent Click Buttons", "Wireless USB Receiver"],
                 colors: ["#18181b"]
             },
@@ -1283,7 +1283,7 @@ fbq('track', 'PageView');
                 stockLeft: 8,
                 image: "https://m.media-amazon.com/images/I/41TK6XsQ15L._SL500_.jpg?format=auto&width=640&height=auto&quality=50",
                 gallery: ["https://m.media-amazon.com/images/I/41TK6XsQ15L._SL500_.jpg?format=auto&width=640&height=auto&quality=50"],
-                description: "🤸 FITNESS ACCESSORY CLEARANCE! Count every jump and burned calorie accurately with the RENPHO Smart Fitness Jump Rope for R35.00 ZAR! Store list price R399.00 ZAR (91% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? This older smart jump rope model has excess warehouse inventory that we cannot keep. To clear room, you are lucky and can get it cheap at R35.00 ZAR instead of R399.00 ZAR.",
                 specs: ["HD LCD Counter Display", "Tangle-Free Steel Cable", "Weighted Ergonomic Handles", "Adjustable Length"],
                 colors: ["#000000", "#ef4444"]
             },
@@ -1302,7 +1302,7 @@ fbq('track', 'PageView');
                 stockLeft: 7,
                 image: "https://media.cecotec.cloud/05440/conga-immortal-extreme-suction-222-hand_1.png:md",
                 gallery: ["https://media.cecotec.cloud/05440/conga-immortal-extreme-suction-222-hand_1.png:md"],
-                description: "🧹 CLEANING APPLIANCE STEAL! Easily clean keyboard dust and vehicle interiors with the Cecotec Handheld Cyclonic Vacuum Cleaner for only R35.00 ZAR! Retail price R399.00 ZAR (91% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We are heavily overstocked on this older handheld vacuum model and cannot keep them in the warehouse. You are lucky to buy it cheap for only R35.00 ZAR (retail R399.00 ZAR).",
                 specs: ["High Suction Power", "Battery Operated", "Compact 360-Degree Design", "Easy Empty Filter"],
                 colors: ["#ffffff", "#18181b"]
             },
@@ -1321,7 +1321,7 @@ fbq('track', 'PageView');
                 stockLeft: 5,
                 image: "https://m.media-amazon.com/images/I/61oqXHKixTL._AC_SX679_.jpg",
                 gallery: ["https://m.media-amazon.com/images/I/61oqXHKixTL._AC_SX679_.jpg"],
-                description: "🐱 PET SUPPLIES CLEARANCE! Keep your indoor cats active and entertained for hours with the TBTeek Motion Sensor Interactive Laser Toy for R35.00 ZAR! Retail stores charge R499.00 ZAR (92% OFF).",
+                description: "📦 WAREHOUSE OVERSTOCK CLEARANCE: Why does this deal exist? We have too much overstock of this older pet toy model in our warehouse and can't keep them. That's why we need to sell them cheap at just R35.00 ZAR instead of R499.00 ZAR.",
                 specs: ["Adjustable Laser Angles", "Automatic Shut-Off", "USB Rechargeable", "Quiet Motor"],
                 colors: ["#ffffff", "#f59e0b"]
             }
@@ -1474,7 +1474,7 @@ fbq('track', 'PageView');
             dummy.select();
             document.execCommand('copy');
             document.body.removeChild(dummy);
-            showToast("✅ Direct Ad Link Copied to Clipboard!");
+            showToast("✅ Direct Overstock Ad Link Copied to Clipboard!");
         }
 
         function initCategoryTabs() {
@@ -1561,7 +1561,7 @@ fbq('track', 'PageView');
 
                         <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
                             <div>
-                                <span class="text-[10px] text-gray-400 uppercase font-black block">Super Price</span>
+                                <span class="text-[10px] text-gray-400 uppercase font-black block">Overstock Price</span>
                                 <div class="flex items-baseline gap-1.5">
                                     <span class="text-xl font-black text-red-600">${product.priceFormatted}</span>
                                     <span class="text-xs text-gray-400 line-through">${product.originalPriceFormatted}</span>
@@ -1606,8 +1606,8 @@ fbq('track', 'PageView');
             document.getElementById('breadcrumbCategory').innerText = product.category;
             document.getElementById('breadcrumbTitle').innerText = product.name;
             document.getElementById('detailMainImage').src = product.image;
-            document.getElementById('detailBadge').innerText = `${discountPercent}% OFF ONE-TIME DEAL`;
-            document.getElementById('stockIndicator').innerText = `Only ${product.stockLeft} Left at this Price!`;
+            document.getElementById('detailBadge').innerText = `${discountPercent}% OFF OVERSTOCK CLEARANCE`;
+            document.getElementById('stockIndicator').innerText = `Only ${product.stockLeft} Left in Warehouse!`;
             document.getElementById('detailCategory').innerText = product.category;
             document.getElementById('detailTitle').innerText = product.name;
             document.getElementById('detailRating').innerText = product.rating;
@@ -1695,7 +1695,7 @@ fbq('track', 'PageView');
                 finalCheckoutUrl = `http://trackingpower4.com/r/kyi8ij?ref=M1234&sub1=${encodedTitle}&sub2=${encodedImage}&pixel=${encodeURIComponent(fbPixelId)}`;
             }
 
-            showToast(`Securing discount price for ${activeProduct.name}... Redirecting to checkout!`);
+            showToast(`Securing overstock clearance price for ${activeProduct.name}... Redirecting to checkout!`);
 
             setTimeout(() => {
                 window.location.href = finalCheckoutUrl;
